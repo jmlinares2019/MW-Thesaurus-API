@@ -1,0 +1,11 @@
+<h1><%= search %></h1>
+
+<form action="/search" method="post">
+    <p>Not found. Did you mean...?</p>
+    <% suggestions.map((suggestion) => { %>
+        <input type="radio" name="search" value="<%= suggestion %>">
+        <label for="<%= suggestion %>"><%= suggestion %></label>
+        <br>
+    <% }); %>
+    <button type="submit">Search</button>
+</form>

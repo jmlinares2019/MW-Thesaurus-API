@@ -1,0 +1,20 @@
+<h1><%= entry %></h1>
+<!-- Checking whether we receive full result or array of suggestions (for wrong or incomplete search) -->
+
+<%
+function grompf(){
+    console.log("Grompf!");
+}
+%>
+
+<% results.map((result) => { %>
+    <h2 class="grammar-class"><%= result.fl %></h2>
+
+    <ul id="short-definitions">
+        <% const shortdefs = result.shortdef;
+        shortdefs.map((shortdef) =>{ %>
+        <li><%= shortdef %></li> 
+        <% }); %>
+    </ul>
+<% }); %>
+

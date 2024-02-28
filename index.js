@@ -20,13 +20,11 @@ app.get("/", async (req, res) => {
 
 app.post("/search", async (req, res) => {
     const search = req.body.search.trim();
-    console.log(search);
+    console.log(`------------------------ New search: ${search} ------------------------ `);
     try {
         const response = await axios.get(`${API_URL}/${search}?key=${API_KEY}`);
-        // const result = JSON.stringify(response.data);
         const results = response.data;
-        // const entry = search.capitalize();
-        console.log(results);
+        // Checking whether we receive full result or array of suggestions (for wrong or incomplete search)
         if(results[0].meta){
             res.render("results.ejs", { 
                 entry: search,

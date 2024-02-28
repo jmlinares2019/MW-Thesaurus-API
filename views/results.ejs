@@ -1,20 +1,45 @@
-<h1><%= entry %></h1>
-<!-- Checking whether we receive full result or array of suggestions (for wrong or incomplete search) -->
+<h1>Results</h1>
 
-<%
-function grompf(){
-    console.log("Grompf!");
-}
-%>
+<% results.map((result, index) => { %>
+    <h2><%= entry %> - <span class="grammar-class"><%= result.fl %></span></h2>
 
-<% results.map((result) => { %>
-    <h2 class="grammar-class"><%= result.fl %></h2>
+    <% const senses = result.def[0].sseq;
+    senses.map((sense) => {
+        // Sense
+        const meaning = sense[0][1].dt[0][1]; %>
+        <p class="meaning-description" style="font-weight: bold;"><%= meaning %></p>
+        
+        // Example sentence
+        <% if(sense[0][1].dt[1]){ // example sentence is not always present! 
+            const example = sense[0][1].dt[1][1][0].t; %>
+            <p class="meaning-example"><%= example %></p>
+        <% }; %>
+        
+        // Synonyms
+        <% if(sense[0][1].syn_list){ // syn_list is not always present! 
+            const synonyms = sense[0][1].syn_list[0]; %> 
+            <h3>Synonyms & similar words</h3>
+            <% synonyms.map((synonym) => { %>
+                <p class="synonim"><%= synonym.wd %></p>
+            <% });
+        }; %>
+        
+        // Antonyms
+        <% if(sense[0][1].rel_list){ // rel_list is not always present! 
+            const similars = sense[0][1].rel_list[0]; 
+            similars.map((similar) => { %>
+                <p class="similar"><%= similar.wd %></p>    
+            <% });
+        }; %>
+        
+        <% if(sense[0][1].near_list){ // near_list is not always present!
+            const antonyms = sense[0][1].near_list[0];
+            antonyms.map((antonym) => { %>
+                <p class="antonym"><%= antonym.wd %></p> 
+            <% }); 
+        }; %>
 
-    <ul id="short-definitions">
-        <% const shortdefs = result.shortdef;
-        shortdefs.map((shortdef) =>{ %>
-        <li><%= shortdef %></li> 
-        <% }); %>
-    </ul>
-<% }); %>
+    <% });
+}); %> 
+
 

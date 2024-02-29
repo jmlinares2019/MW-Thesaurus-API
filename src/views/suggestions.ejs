@@ -1,3 +1,7 @@
+<%- include('partials/header.ejs') %>
+
+<%- include('partials/form.ejs') %>
+
 <h1><%= search %></h1>
 
 <form action="/search" method="post">
@@ -9,3 +13,5 @@
     <% }); %>
     <button type="submit">Search</button>
 </form>
+
+<%- include('partials/footer.ejs') %>

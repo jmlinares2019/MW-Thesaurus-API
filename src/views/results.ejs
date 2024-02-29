@@ -1,0 +1,63 @@
+<%- include('partials/header.ejs') %>
+
+<%- include('partials/form.ejs') %>
+
+<div class="container">
+
+    <%# Main heading %>
+    <h1 class="entry-heading"><%= entry %></h1>
+
+    <% results.map((result, index) => { %>
+        <%# Sense heading %>
+        <h2>
+            <span><%= index + 1 %>.</span>
+            <%= entry %>
+            <span class="grammar-class"> - <%= result.fl %></span>
+        </h2>
+
+        <% const senses = result.def[0].sseq;
+        senses.map((sense) => { %>
+
+            <%# Sense %>
+            <% const meaning = sense[0][1].dt[0][1]; %>
+            <p class="meaning-description" style="font-weight: bold;"><%= meaning %></p>
+            
+            <%# Example sentence %>
+            <% if(sense[0][1].dt[1]){ // example sentence is not always present! 
+                const example = sense[0][1].dt[1][1][0].t; %>
+                <p class="meaning-example"><%= example %></p>
+            <% }; %>
+            
+            <%# Synonyms %>
+            <% if(sense[0][1].syn_list){ // syn_list is not always present! 
+                const synonyms = sense[0][1].syn_list[0]; %> 
+                <h3>Synonyms & similar words</h3>
+                <% synonyms.map((synonym) => { %>
+                    <p class="synonym"><a href="/<%= synonym.wd %>" id="<%= synonym.wd %>"><%= synonym.wd %></a></p>
+                <% });
+            }; %>
+            
+            <%# Related words %>
+            <% if(sense[0][1].rel_list){ // rel_list is not always present! 
+                const similars = sense[0][1].rel_list[0]; 
+                similars.map((similar) => { %>
+                    <p class="similar"><a href="/<%= similar.wd %>"><%= similar.wd %></a></p>    
+                <% });
+            }; %>
+            
+            <%# Antonyms %>
+            <% if(sense[0][1].near_list){ // near_list is not always present!
+                const antonyms = sense[0][1].near_list[0];
+                antonyms.map((antonym) => { %>
+                    <p class="antonym"><a href="/<%= antonym.wd %>"><%= antonym.wd %></a></p> 
+                <% }); 
+            }; %>
+
+        <% });
+    }); %> 
+
+    </div><%#-- Container -- %>
+
+<%- include('partials/footer.ejs') %>
+
+

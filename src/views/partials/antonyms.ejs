@@ -1,0 +1,6 @@
+<% if(sense[0][1].near_list){ // near_list is not always present!
+    const antonyms = sense[0][1].near_list[0];
+    antonyms.map((antonym) => { %>
+        <p class="antonym"><a href="/<%= antonym.wd %>"><%= antonym.wd %></a></p> 
+    <% }); 
+}; %>

@@ -1,0 +1,7 @@
+<% if(sense[0][1].syn_list){ // syn_list is not always present! 
+    const synonyms = sense[0][1].syn_list[0]; %> 
+    <h3>Synonyms & similar words</h3>
+    <% synonyms.map((synonym) => { %>
+        <p class="synonym"><a href="/<%= synonym.wd %>" id="<%= synonym.wd %>"><%= synonym.wd %></a></p>
+    <% });
+}; %>

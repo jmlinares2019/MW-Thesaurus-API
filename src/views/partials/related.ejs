@@ -1,0 +1,6 @@
+<% if(sense[0][1].rel_list){ // rel_list is not always present! 
+    const similars = sense[0][1].rel_list[0]; 
+    similars.map((similar) => { %>
+        <p class="similar"><a href="/<%= similar.wd %>"><%= similar.wd %></a></p>    
+    <% });
+}; %>

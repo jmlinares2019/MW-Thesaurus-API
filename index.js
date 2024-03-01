@@ -29,6 +29,7 @@ app.post("/search", async (req, res) => {
     const search = req.body.search.trim();
     try {
         const response = await axios.get(`${API_URL}/${search}?key=${API_KEY}`);
+        console.log(`----- New search: ${search} -----`)
         const results = response.data;
         // Checking whether we receive full result or array of suggestions (for wrong or incomplete search)
         if(results[0].meta){

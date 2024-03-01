@@ -11844,6 +11844,22 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.synonym a {
-  color: lawngreen !important;
+div, header, footer {
+  border: 1px solid blue;
+}
+
+.grammar-class-wrapper {
+  border: 1px solid violet;
+}
+.grammar-class-wrapper .sense-item {
+  border-color: red;
+}
+.grammar-class-wrapper .sense-item .sense-basics {
+  background-color: aquamarine;
+}
+.grammar-class-wrapper .sense-item .synonyms-similars-item {
+  background-color: bisque;
+}
+.grammar-class-wrapper .sense-item .antonyms-item {
+  background-color: rgb(153, 241, 244);
 }

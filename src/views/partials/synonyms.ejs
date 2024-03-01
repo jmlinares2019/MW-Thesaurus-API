@@ -1,7 +1,21 @@
-<% if(sense[0][1].syn_list){ // syn_list is not always present! 
-    const synonyms = sense[0][1].syn_list[0]; %> 
-    <h3>Synonyms & similar words</h3>
+<% const synonyms = sense[0][1].syn_list[0]; %>
+
+<div class="synonyms-similars-item">
+
+    <h3 class="synonyms-similars-heading">Synonyms & similar words</h3>
+
+    <div class="synonyms-list row">
     <% synonyms.map((synonym) => { %>
-        <p class="synonym"><a href="/<%= synonym.wd %>" id="<%= synonym.wd %>"><%= synonym.wd %></a></p>
-    <% });
-}; %>
+        <div class="synonym-item col-4">
+            <a href="/<%= synonym.wd %>" id="<%= synonym.wd %>"><%= synonym.wd %></a>
+        </div>
+    <% }); %>
+    </div>
+
+    <%# Related words %>
+    <% if(sense[0][1].rel_list){ %> <%# rel_list is not always present! %>
+        <%- include('./related.ejs', { sense: sense }) %>
+    <% }; %>
+    
+</div>
+

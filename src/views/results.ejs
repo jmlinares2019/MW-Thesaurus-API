@@ -1,49 +1,65 @@
-<%- include('partials/header.ejs') %>
+<%- include('partials/head.ejs') %>
 
-<%- include('partials/form.ejs') %>
+<%- include('partials/header.ejs') %>
 
 <div class="container">
 
     <%# Main heading %>
-    <h1 class="entry-heading"><%= entry %></h1>
+    <div class="entry">
+        <h1 class="entry-heading"><%= entry %></h1>
 
-    <% results.map((result) => { %>
+        <% results.map((result) => { %>
+            <% const grammarClass = result.fl %>
+    
+            <%# Sense heading %>
+            <div class="grammar-class-wrapper">
+                <h2 class="grammar-class-heading">
+                    <%= entry %>
+                    <span class="grammar-class"> - <%= grammarClass %></span>
+                </h2>
+
+                <% const senses = result.def[0].sseq;
+                senses.map((sense, index) => { %>
         
-        <%# Sense heading %>
-        <% const grammarClass = result.fl %>
-        <h2>
-            <%= entry %>
-            <span class="grammar-class"> - <%= grammarClass %></span>
-        </h2>
+                    <%# Sense %>
+                    <div class="sense-item">
+                        <div class="sense-basics">
+                            <% const meaning = sense[0][1].dt[0][1]; 
+                            if(senses.length > 1){ %>
+                                <span class="sense-order"><%= index + 1 %></span>
+                            <% } %>
+                            <div class="sense-description-wrapper">
+                                <p class="sense-description" style="font-weight: bold;"><%= meaning %></p>
+                            </div>
+                            
+                            <%# Example sentence %>
+                            <% if(sense[0][1].dt[1]){ // example sentence is not always present! 
+                                const example = sense[0][1].dt[1][1][0].t; %>
+                                <div class="sense-example-wrapper">
+                                    <p class="sense-example"><%= example %></p>
+                                </div>
+                            <% }; %>
+                        </div>
+                        
+                        <%# Synonyms (& related) %>
+                        <% if(sense[0][1].syn_list){ %> <%# syn_list is not always present! %> 
+                            <%- include('partials/synonyms.ejs', { sense: sense }) %>
+                        <% }; %>
 
-        <% const senses = result.def[0].sseq;
-        senses.map((sense, index) => { %>
+                        <%# Antonyms %>
+                        <% if(sense[0][1].near_list){ %> <%# near_list is not always present! %>
+                            <%- include('partials/antonyms.ejs', { sense: sense }) %>
+                        <% }; %>
+                    </div>
+                    
+                <% }); %>
+            </div>
+            
+        <% }); %> 
 
-            <%# Sense %>
-            <% const meaning = sense[0][1].dt[0][1]; 
-                if(senses.length > 1){ %>
-                    <span class="sense-order"><%= index + 1 %></span>
-                <% } %>
-                <p class="meaning-description" style="font-weight: bold;"><%= meaning %></p>
-                
-                <%# Example sentence %>
-                <% if(sense[0][1].dt[1]){ // example sentence is not always present! 
-                    const example = sense[0][1].dt[1][1][0].t; %>
-                    <p class="meaning-example"><%= example %></p>
-                <% }; %>
-                
-                <%# Synonyms %>
-                <%- include('partials/synonyms.ejs', { sense: sense }) %>
-                
-                <%# Related words %>
-                <%- include('partials/related.ejs', { sense: sense }) %>
-                
-                <%# Antonyms %>
-                <%- include('partials/antonyms.ejs', { sense: sense }) %>
-
-        <% }); %>
-
-    <% }); %> 
+    </div>
+    
+    
 
     </div><%#-- Container -- %>
 

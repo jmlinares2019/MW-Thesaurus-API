@@ -11848,6 +11848,10 @@ div, header, footer {
   border: 1px solid blue;
 }
 
+.results-page .container {
+  max-width: 850px;
+}
+
 .grammar-class-wrapper {
   border: 1px solid violet;
 }

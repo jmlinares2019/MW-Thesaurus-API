@@ -1,17 +1,23 @@
-<%- include('partials/header.ejs') %>
-
-<%- include('partials/form.ejs') %>
-
-<h1><%= search %></h1>
-
-<form action="/search" method="post">
-    <p>Not found. Did you mean...?</p>
-    <% suggestions.map((suggestion) => { %>
-        <input type="radio" name="search" value="<%= suggestion %>">
-        <label for="<%= suggestion %>"><%= suggestion %></label>
-        <br>
-    <% }); %>
-    <button type="submit">Search</button>
-</form>
-
-<%- include('partials/footer.ejs') %>
+<div id="suggestions-content"  class="container">
+    <div class="search">
+        <h1 class="search-heading">"<%= search %>"</h1>
+    </div>
+    
+    <div class="suggestions-item">
+        <form action="/search" method="post">
+            <p class="suggestions-message">Not found. Did you mean...?</p>
+            <div class="suggestions-list">
+                <% suggestions.map((suggestion) => { %>
+                    <div class="suggestion-item">
+                        <input type="radio" name="search" value="<%= suggestion %>">
+                        <label for="<%= suggestion %>"><%= suggestion %></label>
+                        <br>
+                    </div>
+                <% }); %>
+            </div>
+            
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    
+</div>

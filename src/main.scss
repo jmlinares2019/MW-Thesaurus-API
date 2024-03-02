@@ -5,6 +5,35 @@
 
 // Then add additional custom code here
 
-.synonym a{
-    color: lawngreen !important;
+div, header, footer{
+    border: 1px solid blue;
+}
+
+
+
+.results-page{
+
+    .container{
+        max-width: 850px;
+    }
+}
+
+.grammar-class-wrapper{
+    border: 1px solid violet;
+
+    .sense-item{
+        border-color: red;
+
+        .sense-basics{
+            background-color: aquamarine;
+        }
+
+        .synonyms-similars-item{
+            background-color: bisque;
+        }
+
+        .antonyms-item{
+            background-color: rgb(153, 241, 244);
+        }
+    }
 }

@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Search page (home)
 app.get("/", async (req, res) => {
-    res.render(`${__dirname}/src/views/index.ejs`);
+    res.render(`${__dirname}/src/views/index.ejs`, { page: "home" });
 });
 
 // Search results
@@ -33,12 +33,14 @@ app.post("/search", async (req, res) => {
         const results = response.data;
         // Checking whether we receive full result or array of suggestions (for wrong or incomplete search)
         if(results[0].meta){
-            res.render(`${__dirname}/src/views/results.ejs`, { 
+            res.render(`${__dirname}/src/views/index.ejs`, { 
+                page: "results", 
                 entry: search,
                 results: results 
             });
         } else {
-            res.render(`${__dirname}/src/views/suggestions.ejs`, { 
+            res.render(`${__dirname}/src/views/index.ejs`, { 
+                page: "suggestions",
                 search: search,
                 suggestions: results 
             });
@@ -56,14 +58,16 @@ app.get("/:word", async (req, res) => {
     try{
         const response = await axios.get(`${API_URL}/${search}?key=${API_KEY}`);
         const results = response.data;
-            // Checking whether we receive full result or array of suggestions (for wrong or incomplete search)
+            // Checking whether we receive full result or array of suggestions (for wrong or incomplete search or URL parameter)
             if(results[0].meta){
-                res.render(`${__dirname}/src/views/results.ejs`, { 
+                res.render(`${__dirname}/src/views/index.ejs`, {
+                    page: "results", 
                     entry: search,
                     results: results 
                 });
             } else {
-                res.render(`${__dirname}/src/views/suggestions.ejs`, { 
+                res.render(`${__dirname}/src/views/index.ejs`, {
+                    page: "suggestions", 
                     search: search,
                     suggestions: results 
                 });

@@ -1,14 +1,19 @@
-<%- include('partials/head.ejs')%>
+<%# Main template %>
 
+<%- include('partials/head.ejs')%>
 
 <%- include('partials/header.ejs') %>
 
-<div class="container">
-    <h1>Welcome to my Dictionary</h1>
-    <img src="/img/dictionary.jpg" class="w-100" alt="merriam-webster-logo">
-</div>
+<%# Template routing %>
+<% if(page === "results") { %>
+    <%- include("results.ejs") %>
+<% } else if (page === "suggestions") { %>
+    <%- include("suggestions.ejs") %>
+<% } else if (page === "suggestions") { %>
+    <%- include('home.ejs') %>
+<% } else { %>
+    <%# on page load, by default %>
+    <%- include('home.ejs') %>
+<% } %>
 
-
-
-
-<%- include('partials/footer.ejs')%>
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,22 @@
+
+<% const phrases = []; %>
+
+<% results.map((result) => { %>
+    <% if(result.meta.id !== entry){ // use different logic? %>
+        <% phrases.push(result.meta.id); %>
+    <% } 
+}); %>
+
+<%# if the array contains phrases %>
+<% if(phrases.length > 0){ %>
+    <div class="phrases-item">
+        <h3 class="phrases-heading">Phrases containing <%= entry %></h3>
+        <div class="phrases-list">
+        <% phrases.map((phrase) => { %>
+            <div class="phrase-item">
+                <a href="/<%= phrase %>"><%= phrase %></a>
+            </div>
+        <% }) %>
+        </div>
+    </div>
+<% } %>

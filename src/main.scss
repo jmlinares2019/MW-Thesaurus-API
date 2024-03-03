@@ -9,13 +9,24 @@ div, header, footer{
     border: 1px solid blue;
 }
 
+#top-header{
+    position: fixed;
+    width: 100%;
+    background-color: brown;
+    height: 50px;
+}
 
+#results-content{
 
-.results-page{
-
-    .container{
+    // .container{
         max-width: 850px;
-    }
+    // }
+}
+
+#left-sidebar{
+    position: fixed;
+    top: 50px;
+    height: 100%;
 }
 
 .grammar-class-wrapper{

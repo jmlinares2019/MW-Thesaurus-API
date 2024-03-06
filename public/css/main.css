@@ -11874,9 +11874,24 @@ div, header, footer {
 .grammar-class-wrapper .sense-item .sense-basics {
   background-color: aquamarine;
 }
-.grammar-class-wrapper .sense-item .synonyms-similars-item {
+.grammar-class-wrapper .sense-item .synonyms-et-altri-item {
   background-color: bisque;
 }
-.grammar-class-wrapper .sense-item .antonyms-item {
+.grammar-class-wrapper .sense-item .synonyms-et-altri-item .synonyms-list {
+  background-color: bisque;
+}
+.grammar-class-wrapper .sense-item .synonyms-et-altri-item .similars-list {
+  background-color: rgb(242, 186, 118);
+}
+.grammar-class-wrapper .sense-item .synonyms-et-altri-item .relateds-list {
+  background-color: rgb(250, 164, 58);
+}
+.grammar-class-wrapper .sense-item .antonyms-et-altri-item .antonyms-item {
   background-color: rgb(153, 241, 244);
+}
+.grammar-class-wrapper .sense-item .antonyms-et-altri-item .near-antonyms-item {
+  background-color: rgb(77, 249, 255);
+}
+.grammar-class-wrapper .sense-item .antonyms-et-altri-item .opposites-item {
+  background-color: rgb(16, 247, 255);
 }

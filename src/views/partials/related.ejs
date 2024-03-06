@@ -1,9 +1,0 @@
-<% const similars = sense[0][1].rel_list[0]; %> 
-
-<div class="similars-list row">
-    <% similars.map((similar) => { %>
-        <div class="similar-item col-4">
-            <a href="/<%= similar.wd %>"><%= similar.wd %></a> 
-        </div> 
-    <% }); %>
-</div>

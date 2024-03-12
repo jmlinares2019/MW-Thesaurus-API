@@ -1,9 +1,11 @@
-<% const topSynonyms = []; %>
+<% const sidebarList = [] %>
+<% let grammarClasses = [] %>
+<% let topSynonyms = []; %>
 
 <div id="results-content" class="container">
      <div class="row">
         <%# Entry %>
-        <div id="entry" class="col-8 offset-4">
+        <div id="entry" class="col-8">
             <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
 
                 <h1 class="entry-heading"><%= entry %></h1>
@@ -11,7 +13,8 @@
                 <% results.map((result) => { %>
                     <%# if the result is only for the word, not a phrase containing it %>
                     <% if(result.meta.id === entry){ %>
-                        <% const grammarClass = result.fl %>
+                        <% const grammarClass = result.fl; %>
+                        <% grammarClasses.push(grammarClass); %> 
                             
                             <%# Sense heading %>
                             <div class="grammar-class-wrapper">
@@ -115,9 +118,16 @@
                                     
                                 <% }); %>
                             </div>
+
+                            <% grammarClasses.push(topSynonyms); 
+                            topSynonyms = [] %>;
                     <% } %> 
                     
                 <% }); %>
+
+                <% 
+                sidebarList.push(grammarClasses); 
+                %>
 
             </div>
             
@@ -127,7 +137,8 @@
         </div><%#-- Entry -- %>
 
         <%# Sidebar %>
-        <%- include('partials/sidebar.ejs', { asInWords: topSynonyms}) %>
+        <% console.log(sidebarList); %>
+        <%- include('partials/sidebar.ejs', { sidebarList: sidebarList }) %>
      </div> 
 
 </div><%#-- Container -- %>

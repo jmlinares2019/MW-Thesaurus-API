@@ -4,7 +4,9 @@
     let   topSynonyms = [] %>
 
 <div id="results-content" class="container">
-     <div class="row">
+    
+    <div class="row">
+        
         <%# Entry %>
         <div id="entry" class="col-8">
             <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
@@ -33,11 +35,17 @@
                                         const synonyms = sense[0][1].syn_list[0];
                                         asIn = synonyms[0].wd;
                                         topSynonyms.push(asIn);
+                                    } else if(sense[0][1].sim_list){
+                                        const synonyms = sense[0][1].sim_list[0];
+                                        asIn = synonyms[0].wd;
+                                        topSynonyms.push(asIn);
                                     } %>
 
                                     <%# Sense %>
                                     <div class="sense-item">
                                         <div class="sense-basics">
+
+                                            <%# Sense heading %>
                                             <div class="sense-basics-header">
                                                 <h3 id="<%= asIn %>">
                                                 <%# Only showing order number if > 1 %>
@@ -137,9 +145,11 @@
         </div><%#-- Entry -- %>
 
         <%# Sidebar %>
-        <% console.log(sidebarList); %>
-        <%- include('partials/sidebar.ejs', { sidebarList: sidebarList }) %>
-     </div> 
+        <div id="left-sidebar" class="col-4">
+            <%- include('partials/sidebar.ejs', { sidebarList: sidebarList }) %>
+        </div><%#-- Sidebar -- %>
+     
+    </div>
 
 </div><%#-- Container -- %>
 

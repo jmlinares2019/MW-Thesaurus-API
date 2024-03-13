@@ -11844,14 +11844,22 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+@font-face {
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans-Variable.woff2") format("woff2");
+}
 div, header, footer {
   border: 1px solid blue;
+}
+
+body {
+  font-family: "OpenSans", sans-serif;
 }
 
 #top-header {
   position: fixed;
   width: 100%;
-  background-color: brown;
+  background-color: rgba(0, 0, 166, 0.596);
   height: 50px;
 }
 
@@ -11870,30 +11878,33 @@ div, header, footer {
 #results-content #entry .grammar-class-wrapper {
   border: 1px solid violet;
 }
-#results-content #entry .grammar-class-wrapper .sense-item {
-  border-color: red;
-}
-#results-content #entry .grammar-class-wrapper .sense-item .sense-basics {
-  background-color: aquamarine;
-}
 #results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item {
-  background-color: bisque;
+  text-decoration: none;
+  /* background-color: bisque;
+
+  .synonyms-list{
+      background-color: bisque;
+  }
+  .similars-list{
+      background-color: rgb(242, 186, 118);
+  }
+  .relateds-list{
+      background-color: rgb(250, 164, 58);
+  } */
 }
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .synonyms-list {
-  background-color: bisque;
+#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .synonyms-item {
+  background-color: #f75b00;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .similars-list {
-  background-color: rgb(242, 186, 118);
-}
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .relateds-list {
-  background-color: rgb(250, 164, 58);
-}
-#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .antonyms-item {
-  background-color: rgb(153, 241, 244);
-}
-#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .near-antonyms-item {
-  background-color: rgb(77, 249, 255);
-}
-#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .opposites-item {
-  background-color: rgb(16, 247, 255);
+#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item {
+  /* .antonyms-item{
+      background-color: rgb(153, 241, 244);
+
+  }
+  .near-antonyms-item{
+      background-color: rgb(77, 249, 255);
+  }
+
+  .opposites-item{
+      background-color: rgb(16, 247, 255);
+  } */
 }

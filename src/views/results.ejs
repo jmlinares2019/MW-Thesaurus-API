@@ -3,12 +3,12 @@
     let   grammarClasses = []
     let   topSynonyms = [] %>
 
-<div id="results-content" class="container">
+<div id="results-content" class="container-fluid">
     
     <div class="row">
         
         <%# Entry %>
-        <div id="entry" class="col-8">
+        <div id="entry" class="col-md-7">
             <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
 
                 <h1 class="entry-heading"><%= entry %></h1>
@@ -61,7 +61,7 @@
                                         <%# Meaning %>
                                         <% const meaning = sense[0][1].dt[0][1]; %>
                                         <div class="sense-description-wrapper">
-                                            <p class="sense-description" style="font-weight: bold;"><%= meaning %></p>
+                                            <p class="sense-description"><%= meaning %></p>
                                         </div>
                                         
                                         <%# Example sentence %>
@@ -145,7 +145,7 @@
         </div><%#-- Entry -- %>
 
         <%# Sidebar %>
-        <div id="left-sidebar" class="col-4">
+        <div id="left-sidebar" class="d-none d-lg-block col-2">
             <%- include('partials/sidebar.ejs', { sidebarList: sidebarList }) %>
         </div><%#-- Sidebar -- %>
      

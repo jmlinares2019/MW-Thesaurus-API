@@ -1,18 +1,25 @@
 // Include any default variable overrides here (though functions won't be available)
 
 // Path to file bootstrap.scss, which imports all the moduls
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Then add additional custom code here
+
+@import "abstracts/colors";
+@import 'fonts';
 
 div, header, footer{
     border: 1px solid blue;
 }
 
+body{
+    font-family: "OpenSans", sans-serif;
+}
+
 #top-header{
     position: fixed;
     width: 100%;
-    background-color: brown;
+    background-color: rgba(0, 0, 166, 0.596);
     height: 50px;
 }
 
@@ -34,14 +41,19 @@ div, header, footer{
             border: 1px solid violet;
         
             .sense-item{
-                border-color: red;
+                // border-color: red;
         
                 .sense-basics{
-                    background-color: aquamarine;
+                    // background-color: aquamarine;
                 }
         
                 .synonyms-et-altri-item{
-                    background-color: bisque;
+                    text-decoration: none;
+
+                    .synonyms-item{
+                        background-color: $synonym;
+                    }
+                    /* background-color: bisque;
         
                     .synonyms-list{
                         background-color: bisque;
@@ -51,11 +63,11 @@ div, header, footer{
                     }
                     .relateds-list{
                         background-color: rgb(250, 164, 58);
-                    }
+                    } */
                 }
                 .antonyms-et-altri-item{
         
-                    .antonyms-item{
+                    /* .antonyms-item{
                         background-color: rgb(153, 241, 244);
                         
                     }
@@ -65,7 +77,7 @@ div, header, footer{
         
                     .opposites-item{
                         background-color: rgb(16, 247, 255);
-                    }
+                    } */
                 }
                 
             }

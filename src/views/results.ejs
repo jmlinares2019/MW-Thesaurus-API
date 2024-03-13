@@ -1,6 +1,7 @@
-<% const sidebarList = [] %>
-<% let grammarClasses = [] %>
-<% let topSynonyms = []; %>
+<%# initializing sidebar data nested arrays, to be filled and nested on each iteration %>
+<%  const sidebarList = []
+    let   grammarClasses = []
+    let   topSynonyms = [] %>
 
 <div id="results-content" class="container">
      <div class="row">
@@ -118,16 +119,15 @@
                                     
                                 <% }); %>
                             </div>
-
-                            <% grammarClasses.push(topSynonyms); 
-                            topSynonyms = [] %>;
+                            
+                            <%# Pushing to sidebar and emptying %>
+                            <% grammarClasses.push(topSynonyms);
+                            sidebarList.push(grammarClasses);
+                            topSynonyms = [] 
+                            grammarClasses = [] %>;
                     <% } %> 
                     
                 <% }); %>
-
-                <% 
-                sidebarList.push(grammarClasses); 
-                %>
 
             </div>
             

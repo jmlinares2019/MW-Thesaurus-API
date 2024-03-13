@@ -17,55 +17,61 @@ div, header, footer{
 }
 
 #results-content{
+    // max-width: 850px;
+    padding-top: 50px;
 
-    // .container{
-        max-width: 850px;
-    // }
-}
+    #left-sidebar{
+        order: 1;
+        position: sticky;
+        top: 50px;
+        height: 100%;
+    }
+    
+    #entry{
+        order: 2;
 
-#left-sidebar{
-    position: fixed;
-    top: 50px;
-    height: 100%;
-}
-
-.grammar-class-wrapper{
-    border: 1px solid violet;
-
-    .sense-item{
-        border-color: red;
-
-        .sense-basics{
-            background-color: aquamarine;
-        }
-
-        .synonyms-et-altri-item{
-            background-color: bisque;
-
-            .synonyms-list{
-                background-color: bisque;
-            }
-            .similars-list{
-                background-color: rgb(242, 186, 118);
-            }
-            .relateds-list{
-                background-color: rgb(250, 164, 58);
-            }
-        }
-        .antonyms-et-altri-item{
-
-            .antonyms-item{
-                background-color: rgb(153, 241, 244);
+        .grammar-class-wrapper{
+            border: 1px solid violet;
+        
+            .sense-item{
+                border-color: red;
+        
+                .sense-basics{
+                    background-color: aquamarine;
+                }
+        
+                .synonyms-et-altri-item{
+                    background-color: bisque;
+        
+                    .synonyms-list{
+                        background-color: bisque;
+                    }
+                    .similars-list{
+                        background-color: rgb(242, 186, 118);
+                    }
+                    .relateds-list{
+                        background-color: rgb(250, 164, 58);
+                    }
+                }
+                .antonyms-et-altri-item{
+        
+                    .antonyms-item{
+                        background-color: rgb(153, 241, 244);
+                        
+                    }
+                    .near-antonyms-item{
+                        background-color: rgb(77, 249, 255);
+                    }
+        
+                    .opposites-item{
+                        background-color: rgb(16, 247, 255);
+                    }
+                }
                 
             }
-            .near-antonyms-item{
-                background-color: rgb(77, 249, 255);
-            }
-
-            .opposites-item{
-                background-color: rgb(16, 247, 255);
-            }
         }
-        
     }
+
+    
 }
+

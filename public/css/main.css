@@ -11856,42 +11856,44 @@ div, header, footer {
 }
 
 #results-content {
-  max-width: 850px;
+  padding-top: 50px;
 }
-
-#left-sidebar {
-  position: fixed;
+#results-content #left-sidebar {
+  order: 1;
+  position: sticky;
   top: 50px;
   height: 100%;
 }
-
-.grammar-class-wrapper {
+#results-content #entry {
+  order: 2;
+}
+#results-content #entry .grammar-class-wrapper {
   border: 1px solid violet;
 }
-.grammar-class-wrapper .sense-item {
+#results-content #entry .grammar-class-wrapper .sense-item {
   border-color: red;
 }
-.grammar-class-wrapper .sense-item .sense-basics {
+#results-content #entry .grammar-class-wrapper .sense-item .sense-basics {
   background-color: aquamarine;
 }
-.grammar-class-wrapper .sense-item .synonyms-et-altri-item {
+#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item {
   background-color: bisque;
 }
-.grammar-class-wrapper .sense-item .synonyms-et-altri-item .synonyms-list {
+#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .synonyms-list {
   background-color: bisque;
 }
-.grammar-class-wrapper .sense-item .synonyms-et-altri-item .similars-list {
+#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .similars-list {
   background-color: rgb(242, 186, 118);
 }
-.grammar-class-wrapper .sense-item .synonyms-et-altri-item .relateds-list {
+#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .relateds-list {
   background-color: rgb(250, 164, 58);
 }
-.grammar-class-wrapper .sense-item .antonyms-et-altri-item .antonyms-item {
+#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .antonyms-item {
   background-color: rgb(153, 241, 244);
 }
-.grammar-class-wrapper .sense-item .antonyms-et-altri-item .near-antonyms-item {
+#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .near-antonyms-item {
   background-color: rgb(77, 249, 255);
 }
-.grammar-class-wrapper .sense-item .antonyms-et-altri-item .opposites-item {
+#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .opposites-item {
   background-color: rgb(16, 247, 255);
 }

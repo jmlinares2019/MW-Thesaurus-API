@@ -3,13 +3,13 @@
     let   grammarClasses = []
     let   topSynonyms = [] %>
 
-<div id="results-content" class="container-fluid">
+<div id="main">
     
-    <div class="row">
-        
-        <%# Entry %>
-        <div id="entry" class="col-md-9 col-lg-7">
-            <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+    <div class="container-fluid">
+        <div class="row main-wrapper">
+
+            <%# Entry %>
+            <div id="entry" data-bs-spy="scroll" data-bs-target="#as-in-list" data-bs-smooth-scroll="true" class="col-md-9 col-lg-7 scrollspy-example" tabindex="0">
 
                 <h1 class="entry-heading"><%= entry %></h1>
 
@@ -22,113 +22,115 @@
                     grammarClasses.push(grammarClass); %> 
                         
                         <%# Sense heading %>
-                        <div class="grammar-class-wrapper">
-                            <h2 class="grammar-class-heading">
-                                <span class="grammar-class-entry"><%= entry %></span>
-                                <span class="grammar-class-numeration"><%= index + 1 %> of <%= total %></span>
-                                <span class="grammar-class"><%= grammarClass %></span>
-                            </h2>
+                        <div class="row grammar-class-wrapper">
+                            <div class="col-auto grammar-class-heading">
+                                <h2><%= entry %></h2>
+                            </div>
+                            <div class="col-auto grammar-class-numeration">
+                                <span><%= index + 1 %> of <%= total %></span>
+                            </div>
+                            <div class="col-auto grammar-class">
+                                <span><%= grammarClass %></span>
+                            </div>
+                        </div>
 
-                            <% const senses = mainResult.def[0].sseq;
-                            senses.map((sense, index) => { %>
+                        <% const senses = mainResult.def[0].sseq;
+                        senses.map((sense, index) => { %>
 
-                                <%# As in ... %>
-                                <% let asIn = "";
-                                if(sense[0][1].syn_list){
-                                    const synonyms = sense[0][1].syn_list[0];
-                                    asIn = synonyms[0].wd;
-                                    topSynonyms.push(asIn);
-                                } else if(sense[0][1].sim_list){
-                                    const synonyms = sense[0][1].sim_list[0];
-                                    asIn = synonyms[0].wd;
-                                    topSynonyms.push(asIn);
-                                } %>
+                            <%# As in ... %>
+                            <% let asIn = "";
+                            if(sense[0][1].syn_list){
+                                const synonyms = sense[0][1].syn_list[0];
+                                asIn = synonyms[0].wd;
+                                topSynonyms.push(asIn);
+                            } else if(sense[0][1].sim_list){
+                                const synonyms = sense[0][1].sim_list[0];
+                                asIn = synonyms[0].wd;
+                                topSynonyms.push(asIn);
+                            } %>
 
-                                <%# Sense %>
-                                <div class="sense-item">
-                                    <div class="sense-basics">
+                            <%# Sense %>
+                            <section class="sense-item">
+                                <div class="row sense-basics">
 
-                                        <%# Sense heading %>
-                                        <div class="sense-basics-header">
-                                            <h3 id="<%= asIn %>">
-                                            <%# Only showing order number if > 1 %>
-                                                <% if(senses.length > 1){ %>
-                                                    <span class="sense-order"><%= index + 1 %></span>
-                                                <% } %>
-                                                As in <span class="as-in-word"><%= asIn %></span>
-                                            </h3>
-                                        </div>
-                                        
-                                        <%# Meaning %>
-                                        <% const meaning = sense[0][1].dt[0][1]; %>
-                                        <div class="sense-description-wrapper">
-                                            <p class="sense-description"><%= meaning %></p>
-                                        </div>
-                                        
-                                        <%# Example sentence %>
-                                        <% if(sense[0][1].dt[1]){ 
-                                            const example = sense[0][1].dt[1][1][0].t; %>
-                                            <div class="sense-example-wrapper">
-                                                <p class="sense-example"><%= example %></p>
-                                            </div>
-                                        <% } %>
+                                    <%# Sense heading %>
+                                    <div class="col-12 sense-intro-wrapper">
+                                        <h3 id="<%= asIn %>">
+                                        <%# Only showing order number if > 1 %>
+                                            <% if(senses.length > 1){ %>
+                                                <span class="sense-order"><%= index + 1 %></span>
+                                            <% } %>
+                                            As in <span class="as-in-word"><%= asIn %></span>
+                                        </h3>
                                     </div>
                                     
-                                    <%# Synonyms (& simlar & related) %>
-                                    <% if(sense[0][1].syn_list || sense[0][1].rel_list || sense[0][1].sim_list){ %>
-                                        <div class="synonyms-et-altri-item">
-                                            <h4 class="synonyms-similars-heading">Synonyms & similar words</h4>
-                                            <% if(sense[0][1].syn_list){ %>
-                                                <%- include('partials/variations.ejs', { 
-                                                    variationsName: "synonyms",
-                                                    variations: sense[0][1].syn_list 
-                                                }) %>        
-                                            <% } %>
-                                            <% if(sense[0][1].sim_list){ %>
-                                                <%- include('partials/variations.ejs', { 
-                                                    variationsName: "similars",
-                                                    variations: sense[0][1].sim_list 
-                                                }) %>
-                                            <% } %>
-                                            <% if(sense[0][1].rel_list){ %>
-                                                <%- include('partials/variations.ejs', { 
-                                                    variationsName: "relateds",
-                                                    variations: sense[0][1].rel_list 
-                                                }) %>
-                                            <% } %>
-                                        </div> 
-                                    <% } %>
-
-                                    <%# Antonyms (& opposites) %>
-                                    <% if(sense[0][1].ant_list || sense[0][1].near_list || sense[0][1].opp_list){ %> 
-                                        <div class="antonyms-et-altri-item">
-                                            <h4 class="antonyms-heading">Antonyms & near antonyms</h4>
-                                            <% if(sense[0][1].ant_list){ %>
-                                                <%- include('partials/variations.ejs', { 
-                                                    variationsName: "antonyms",
-                                                    variations: sense[0][1].ant_list 
-                                                }) %>
-                                            <% } %>
-                                            <% if(sense[0][1].near_list){ %>
-                                                <%- include('partials/variations.ejs', { 
-                                                    variationsName: "near-antonyms",
-                                                    variations: sense[0][1].near_list 
-                                                }) %>
-                                            <% } %>
-                                            <% if(sense[0][1].opp_list){ %>
-                                                <%- include('partials/variations.ejs', { 
-                                                    variationsName: "opposites",
-                                                    variations: sense[0][1].opp_list 
-                                                }) %>
-                                            <% } %>
-                                            
+                                    <%# Meaning %>
+                                    <% const meaning = sense[0][1].dt[0][1]; %>
+                                    <div class="col-12 sense-description-wrapper">
+                                        <p class="sense-description"><%= meaning %></p>
+                                    </div>
+                                    
+                                    <%# Example sentence %>
+                                    <% if(sense[0][1].dt[1]){ 
+                                        const example = sense[0][1].dt[1][1][0].t; %>
+                                        <div class="col-12 sense-example-wrapper">
+                                            <p class="sense-example"><%= example %></p>
                                         </div>
-                                        
                                     <% } %>
                                 </div>
                                 
+                                <%# Synonyms (& simlar & related) %>
+                                <% if(sense[0][1].syn_list || sense[0][1].rel_list || sense[0][1].sim_list){ %>
+                                    <div class="row synonyms-etc-item">
+                                        <h4 class="synonyms-similars-heading">Synonyms & similar words</h4>
+                                        <% if(sense[0][1].syn_list){ %>
+                                            <%- include('partials/variations.ejs', { 
+                                                variationsName: "synonyms",
+                                                variations: sense[0][1].syn_list 
+                                            }) %>     
+                                        <% } %>
+                                        <% if(sense[0][1].sim_list){ %>
+                                            <%- include('partials/variations.ejs', { 
+                                                variationsName: "similars",
+                                                variations: sense[0][1].sim_list 
+                                            }) %>
+                                        <% } %>
+                                        <% if(sense[0][1].rel_list){ %>
+                                            <%- include('partials/variations.ejs', { 
+                                                variationsName: "relateds",
+                                                variations: sense[0][1].rel_list 
+                                            }) %>
+                                        <% } %>
+                                    </div> 
+                                <% } %>
+
+                                <%# Antonyms (& opposites) %>
+                                <% if(sense[0][1].ant_list || sense[0][1].near_list || sense[0][1].opp_list){ %> 
+                                    <div class="row antonyms-etc-item">
+                                        <h4 class="antonyms-heading">Antonyms & near antonyms</h4>
+                                        <% if(sense[0][1].ant_list){ %>
+                                            <%- include('partials/variations.ejs', { 
+                                                variationsName: "antonyms",
+                                                variations: sense[0][1].ant_list 
+                                            }) %>
+                                        <% } %>
+                                        <% if(sense[0][1].near_list){ %>
+                                            <%- include('partials/variations.ejs', { 
+                                                variationsName: "near-antonyms",
+                                                variations: sense[0][1].near_list 
+                                            }) %>
+                                        <% } %>
+                                        <% if(sense[0][1].opp_list){ %>
+                                            <%- include('partials/variations.ejs', { 
+                                                variationsName: "opposites",
+                                                variations: sense[0][1].opp_list 
+                                            }) %>
+                                        <% } %>
+                                    </div>             
+                                <% } %>
+                            </section>
+                                
                             <% }); %>
-                        </div>
                         
                         <%# Pushing to sidebar and emptying %>
                         <% grammarClasses.push(topSynonyms);
@@ -138,20 +140,20 @@
                     
                 <% }); %>
 
-            </div>
-            
-            <%# Phrases containing the entry, if they exist (check inside partial) %>
-            <%- include('partials/phrases.ejs', { entry: entry }) %>
-            
-        </div><%#-- Entry -- %>
+                <%# Phrases containing the entry, if they exist (check inside partial) %>
+                <%- include('partials/phrases.ejs', { entry: entry }) %>
 
-        <%# Sidebar %>
-        <div id="left-sidebar" class="d-none d-lg-block col-2"><%# d-none d-lg-block col-2 %>
-            <%- include('partials/sidebar.ejs', { sidebarList: sidebarList }) %>
-        </div><%#-- Sidebar -- %>
-     
-    </div>
+            </div><%#-- Entry -- %>
 
-</div><%#-- Container -- %>
+            <%# Sidebar %>
+            <div id="left-sidebar" class="d-none d-lg-block col-2"><%# d-none d-lg-block col-2 %>
+                <%- include('partials/sidebar.ejs', { sidebarList: sidebarList }) %>
+            </div><%#-- Sidebar -- %>
+             
+        </div><%#-- main-wrapper --%>
+        
+    </div><%#-- Container-fluid -- %>
+
+</div>
 
 

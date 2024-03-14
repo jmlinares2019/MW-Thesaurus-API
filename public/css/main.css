@@ -11850,10 +11850,10 @@ textarea.form-control-lg {
 }
 @font-face {
   font-family: "Playfair Display";
-  src: url("../fonts/PlayfairDisplay-Variable.woff2");
+  src: url("../fonts/PlayfairDisplay-Variable.woff2") format("woff2");
 }
-div, header, footer {
-  border: 1px solid blue;
+[class^=col] {
+  border: 1px solid green;
 }
 
 body {
@@ -11867,51 +11867,74 @@ body {
   height: 50px;
 }
 
-#results-content {
-  padding-top: 50px;
+#main {
   background-image: linear-gradient(90deg, #133f59 50%, #fff 0);
 }
-#results-content #entry {
+#main #entry {
   order: 2;
+  padding-top: 50px;
   background-color: whitesmoke;
 }
-#results-content #entry h1.entry-heading, #results-content #entry .entry-heading.h1 {
+#main #entry h1.entry-heading, #main #entry .entry-heading.h1 {
+  display: none;
   font-family: "Playfair Display", "Times New Roman", Times, serif;
   font-size: 2rem;
 }
-#results-content #entry .grammar-class-wrapper {
+#main #entry .grammar-class-wrapper {
   border: 1px solid violet;
+  align-items: baseline;
 }
-#results-content #entry .grammar-class-wrapper .grammar-class-entry,
-#results-content #entry .grammar-class-wrapper .grammar-class {
+#main #entry .grammar-class-wrapper .grammar-class-heading h2, #main #entry .grammar-class-wrapper .grammar-class-heading .h2 {
+  font-size: 39px;
+  font-weight: bold;
+}
+#main #entry .grammar-class-wrapper .grammar-class-heading h2, #main #entry .grammar-class-wrapper .grammar-class-heading .h2,
+#main #entry .grammar-class-wrapper .grammar-class {
   font-family: "Playfair Display", "Times New Roman", Times, serif;
 }
-#results-content #entry .grammar-class-wrapper .grammar-class-entry {
+#main #entry .grammar-class-wrapper .grammar-class-entry {
   font-size: 2rem;
 }
-#results-content #entry .grammar-class-wrapper .grammar-class-numeration {
+#main #entry .grammar-class-wrapper .grammar-class-numeration {
   font-size: 1rem;
   background-color: #e9e9e9;
   padding: 0.5rem;
 }
-#results-content #entry .grammar-class-wrapper .grammar-class {
+#main #entry .grammar-class-wrapper .grammar-class {
   font-size: 1.5rem;
   color: grey;
 }
-#results-content #entry .grammar-class-wrapper .sense-item {
-  padding: 1rem 0 0 1rem;
+#main #entry .sense-item {
+  padding-top: 1rem;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .sense-basics .as-in-word {
+#main #entry .sense-item .sense-basics .sense-intro-wrapper {
+  font-weight: bold;
+}
+#main #entry .sense-item .sense-basics .sense-intro-wrapper h3, #main #entry .sense-item .sense-basics .sense-intro-wrapper .h3 {
+  font-size: 1rem;
+}
+#main #entry .sense-item .sense-basics .sense-intro-wrapper .as-in-word {
   font-style: italic;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .related-term-wrapper {
+#main #entry .sense-item .sense-basics .sense-description {
+  margin-bottom: 0;
+}
+#main #entry .sense-item .synonyms-list,
+#main #entry .sense-item .similars-list,
+#main #entry .sense-item .relateds-list,
+#main #entry .sense-item .antonyms-list,
+#main #entry .sense-item .near-antonyms-list,
+#main #entry .sense-item .opposites-list {
+  margin-left: 0;
+}
+#main #entry .sense-item .related-term-wrapper {
   padding: 0.25rem;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .related-term-wrapper .related-term-item {
+#main #entry .sense-item .related-term-wrapper .related-term-item {
   font-weight: bold;
   text-decoration: none;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item {
+#main #entry .sense-item .synonyms-etc-item {
   text-decoration: none;
   /* background-color: bisque;
 
@@ -11925,12 +11948,12 @@ body {
       background-color: rgb(250, 164, 58);
   } */
 }
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .synonyms-item {
+#main #entry .sense-item .synonyms-etc-item .synonyms-item {
   background-color: #f75b00;
   color: whitesmoke;
   padding: 0.25rem;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item {
+#main #entry .sense-item .antonyms-et-altri-item {
   /* .antonyms-item{
       background-color: rgb(153, 241, 244);
 
@@ -11943,7 +11966,7 @@ body {
       background-color: rgb(16, 247, 255);
   } */
 }
-#results-content #left-sidebar {
+#main #left-sidebar {
   order: 1;
   position: sticky;
   top: 50px;
@@ -11951,29 +11974,29 @@ body {
   color: whitesmoke;
   font-size: 1.25rem;
 }
-#results-content #left-sidebar .as-in-list-wrapper {
+#main #left-sidebar .as-in-list-wrapper {
   border-left: 1px solid #c5a332;
 }
-#results-content #left-sidebar .grammar-class {
+#main #left-sidebar .grammar-class {
   font-family: "Playfair Display", "Times New Roman", Times, serif;
   font-weight: bold;
   color: #c5a332 !important;
   margin-bottom: 0;
   padding-left: 0.5rem;
 }
-#results-content #left-sidebar .list-group-item-action {
+#main #left-sidebar .list-group-item-action {
   color: whitesmoke !important;
   background-color: transparent !important;
   text-decoration: none;
   padding-left: 1rem;
 }
-#results-content #left-sidebar .list-group-item-action.active {
+#main #left-sidebar .list-group-item-action.active {
   background-color: #e96802 !important;
 }
-#results-content #left-sidebar .list-group-item-action:last-child {
+#main #left-sidebar .list-group-item-action:last-child {
   border-radius: 0;
 }
-#results-content #left-sidebar .list-group-item-action .as-in-word {
+#main #left-sidebar .list-group-item-action .as-in-word {
   font-weight: bold;
   font-style: italic;
 }

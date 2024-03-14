@@ -8,7 +8,7 @@
     <div class="row">
         
         <%# Entry %>
-        <div id="entry" class="col-md-7">
+        <div id="entry" class="col-md-9 col-lg-7">
             <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
 
                 <h1 class="entry-heading"><%= entry %></h1>
@@ -52,10 +52,11 @@
                                         <div class="sense-basics-header">
                                             <h3 id="<%= asIn %>">
                                             <%# Only showing order number if > 1 %>
-                                            <% if(senses.length > 1){ %>
-                                                <span class="sense-order"><%= index + 1 %></span>
-                                            <% } %>
-                                            As in <%= asIn %></h3>
+                                                <% if(senses.length > 1){ %>
+                                                    <span class="sense-order"><%= index + 1 %></span>
+                                                <% } %>
+                                                As in <span class="as-in-word"><%= asIn %></span>
+                                            </h3>
                                         </div>
                                         
                                         <%# Meaning %>
@@ -145,7 +146,7 @@
         </div><%#-- Entry -- %>
 
         <%# Sidebar %>
-        <div id="left-sidebar" class="d-none d-lg-block col-2">
+        <div id="left-sidebar" class="d-none d-lg-block col-2"><%# d-none d-lg-block col-2 %>
             <%- include('partials/sidebar.ejs', { sidebarList: sidebarList }) %>
         </div><%#-- Sidebar -- %>
      

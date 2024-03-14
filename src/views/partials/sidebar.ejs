@@ -1,8 +1,10 @@
-<div id="list-example" class="list-group">
-  <% sidebarList.map((grammarClass) =>{ %>
-    <p><%= grammarClass[0] %></p>
-    <% grammarClass[1].map((asInWord) =>{ %>
-      <a class="list-group-item list-group-item-action" href="#<%= asInWord %>">As in <%= asInWord %></a>
+<div class="as-in-list-wrapper">
+  <div id="as-in-list" class="list-group">
+    <% sidebarList.map((grammarClass) =>{ %>
+      <p class="grammar-class"><%= grammarClass[0] %></p>
+      <% grammarClass[1].map((asInWord) =>{ %>
+        <a class="list-group-item-action" href="#<%= asInWord %>">As in <span class="as-in-word"><%= asInWord %></span></a>
+      <% }); %>
     <% }); %>
-  <% }); %>
+  </div>
 </div>

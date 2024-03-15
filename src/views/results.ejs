@@ -81,7 +81,7 @@
                                 
                                 <%# Synonyms (& simlar & related) %>
                                 <% if(sense[0][1].syn_list || sense[0][1].rel_list || sense[0][1].sim_list){ %>
-                                    <div class="row synonyms-etc-item">
+                                    <div class="row synonyms-etc-wrapper">
                                         <h4 class="synonyms-similars-heading">Synonyms & similar words</h4>
                                         <% if(sense[0][1].syn_list){ %>
                                             <%- include('partials/variations.ejs', { 
@@ -106,7 +106,7 @@
 
                                 <%# Antonyms (& opposites) %>
                                 <% if(sense[0][1].ant_list || sense[0][1].near_list || sense[0][1].opp_list){ %> 
-                                    <div class="row antonyms-etc-item">
+                                    <div class="row antonyms-etc-wrapper">
                                         <h4 class="antonyms-heading">Antonyms & near antonyms</h4>
                                         <% if(sense[0][1].ant_list){ %>
                                             <%- include('partials/variations.ejs', { 

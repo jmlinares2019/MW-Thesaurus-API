@@ -9,12 +9,14 @@
 
 <%# if the array contains phrases %>
 <% if(phrases.length > 0){ %>
-    <div class="phrases-item">
-        <h3 class="phrases-heading">Phrases containing <%= entry %></h3>
-        <div class="phrases-list">
+    <div id="related-phrases" class="container-fluid related-phrases-wrapper">
+        <div class="row heading-wrapper">
+            <h3 class="related-phrases-heading">Phrases containing <em><%= entry %></em></h3>
+        </div>
+        <div class="row related-phrases-list">
         <% phrases.map((phrase) => { %>
-            <div class="phrase-item">
-                <a href="/<%= phrase %>"><%= phrase %></a>
+            <div class="col-4 phrase-item-wrapper">
+                <a href="/<%= phrase %>" class="phrase-item"><%= phrase %></a>
             </div>
         <% }) %>
         </div>

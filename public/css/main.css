@@ -11859,6 +11859,7 @@ body {
 
 #top-header {
   position: fixed;
+  z-index: 1000;
   width: 100%;
   background-color: #133f59;
   height: 50px;
@@ -11888,7 +11889,7 @@ body {
 }
 #main #entry .grammar-class-wrapper .grammar-class-numeration {
   padding: 0.5rem;
-  background-color: lightgrey;
+  background-color: #f4f4f4;
 }
 #main #entry .grammar-class-wrapper .grammar-class {
   font-family: "Playfair Display", "Times New Roman", Times, serif;
@@ -11899,12 +11900,37 @@ body {
 }
 #main #entry .sense-item {
   padding-top: 1rem;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-image-source: linear-gradient(to bottom, #bbd5e0, #deeaef 17.8%, #deeaef 81.87%, #bbd5e0);
+  border-image-slice: 1;
+}
+#main #entry .sense-item .sense-basics {
+  padding-left: 1rem;
 }
 #main #entry .sense-item .sense-basics .sense-intro-wrapper h3, #main #entry .sense-item .sense-basics .sense-intro-wrapper .h3 {
   font-size: 1.0625rem;
   line-height: 1.6875rem;
   font-weight: 700;
-  color: #212529;
+  color: #0f3850;
+  position: relative;
+}
+#main #entry .sense-item .sense-basics .sense-intro-wrapper h3 .sense-order, #main #entry .sense-item .sense-basics .sense-intro-wrapper .h3 .sense-order {
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  width: 24px;
+  height: 35px;
+  background-color: white;
+}
+#main #entry .sense-item .sense-basics .sense-intro-wrapper h3 .sense-order::before, #main #entry .sense-item .sense-basics .sense-intro-wrapper .h3 .sense-order::before {
+  content: "";
+  position: absolute;
+  top: -75%;
+  left: -25%;
+  width: 20px;
+  height: 30px;
+  background-color: #fff;
 }
 #main #entry .sense-item .sense-basics .sense-intro-wrapper .as-in-word {
   font-style: italic;
@@ -11937,18 +11963,34 @@ body {
   padding: 1px 0.5rem;
   border-radius: 5px;
 }
+#main #entry .sense-item .related-term-wrapper .related-term-item:hover {
+  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
 #main #entry .sense-item .synonyms-etc-wrapper {
   padding-top: 2rem;
+  padding-left: 1rem;
 }
 #main #entry .sense-item .synonyms-etc-wrapper .synonyms-similars-heading {
   font-size: 1.0625rem;
   line-height: 1.6875rem;
   font-weight: 700;
-  color: #212529;
+  color: #0f3850;
+  position: relative;
+}
+#main #entry .sense-item .synonyms-etc-wrapper .synonyms-similars-heading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1.125rem;
+  width: 24px;
+  height: 24px;
+  border: 8px solid #fff;
+  border-radius: 25px;
+  background-color: #f4f4f4;
 }
 #main #entry .sense-item .synonyms-etc-wrapper .synonyms-item {
   background-color: #f75b00;
-  color: white;
+  color: #fff;
 }
 #main #entry .sense-item .synonyms-etc-wrapper .relateds-item {
   background-color: #fef0e6;
@@ -11956,12 +11998,13 @@ body {
 }
 #main #entry .sense-item .antonyms-etc-wrapper {
   padding-top: 2rem;
+  padding-left: 1rem;
 }
 #main #entry .sense-item .antonyms-etc-wrapper .antonyms-heading {
   font-size: 1.0625rem;
   line-height: 1.6875rem;
   font-weight: 700;
-  color: #212529;
+  color: #0f3850;
 }
 #main #entry .sense-item .antonyms-etc-wrapper .antonyms-item {
   background-color: #0061f2;

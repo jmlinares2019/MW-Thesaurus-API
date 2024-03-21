@@ -32,6 +32,7 @@ body{
 
 #top-header{
     position: fixed;
+    z-index: 1000;
     width: 100%;
     background-color: $darkBlue;
     height: 50px;
@@ -62,7 +63,7 @@ body{
             .grammar-class-numeration{
                 // font-size: 1rem;
                 padding: 0.5rem;
-                background-color: lightgrey;
+                background-color: $lightgrey;
             }     
 
             .grammar-class{
@@ -73,14 +74,45 @@ body{
 
         .sense-item{
             padding-top: 1rem;
+            border-left-width: 5px;
+            border-left-style: solid;
+            // border-image-source: linear-gradient(to bottom, $grey, $lightgrey);
+            border-image-source: linear-gradient(to bottom, #bbd5e0, #deeaef 17.8%, #deeaef 81.87%, #bbd5e0);
+            border-image-slice: 1;
 
+            div{
+                // border: 1px solid blue;
+                
+            }
     
             .sense-basics{
+                padding-left: 1rem;
 
                 .sense-intro-wrapper{
 
                     h3{
                         @include entrySubheading;
+                        position: relative;
+
+                        .sense-order{
+                            position: absolute;
+                            top: 0;
+                            left: remify(-24px);
+                            width: 24px;
+                            height: 35px;
+                            background-color: white;
+
+                            &::before{
+                                content: "";
+                                position: absolute;
+                                top: -75%;
+                                left: -25%;
+                                width: 20px;
+                                height: 30px;
+                                background-color: $white;
+                                
+                            }
+                        } 
 
                     }
 
@@ -115,19 +147,37 @@ body{
 
                 .related-term-item{
                     @include relatedTerm;
+                    
+                    &:hover{
+                        box-shadow: inset 0 0 0 3px rgba(0,0,0,.1);
+                    }
                 }
             }
         
             .synonyms-etc-wrapper{
                 padding-top: 2rem;
+                padding-left: 1rem;
 
                 .synonyms-similars-heading{
                     @include entrySubheading;
+                    position: relative;
+
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: remify(-18px); 
+                        width: 24px;
+                        height: 24px;
+                        border: 8px solid $white;
+                        border-radius: 25px;
+                        background-color: $lightgrey;
+                    }
                 }
 
                 .synonyms-item{
                     background-color: $synonym;
-                    color: white;
+                    color: $white;
                 }
 
                 .relateds-item{
@@ -138,6 +188,7 @@ body{
 
             .antonyms-etc-wrapper{
                 padding-top: 2rem;
+                padding-left: 1rem;
 
                 .antonyms-heading{
                     @include entrySubheading;
@@ -156,6 +207,7 @@ body{
             }
             
         }
+
         #related-phrases{
             padding-top: 2rem;
             .heading-wrapper{

@@ -11870,7 +11870,8 @@ body {
 }
 #main #entry {
   order: 2;
-  padding-top: 50px;
+  padding-top: 3.125rem;
+  padding-left: 2.25rem;
   background-color: white;
 }
 #main #entry h1.entry-heading, #main #entry .entry-heading.h1 {
@@ -12027,7 +12028,16 @@ body {
   font-weight: 700;
   color: #4a7d95;
 }
-#main #entry #related-phrases .phrase-item {
+#main #entry #related-phrases .related-phrases-list {
+  padding-top: 1rem;
+}
+#main #entry #related-phrases .related-phrases-list .phrase-item-wrapper {
+  margin-bottom: 0.625rem;
+}
+#main #entry #related-phrases .related-phrases-list .phrase-item-wrapper .phrase-item {
+  color: #0061f2;
+}
+#main #entry #related-phrases .related-phrases-list .phrase-item-wrapper .phrase-item:not(:hover) {
   text-decoration: none;
 }
 #main #left-sidebar {
@@ -12045,22 +12055,46 @@ body {
   font-family: "Playfair Display", "Times New Roman", Times, serif;
   font-weight: bold;
   color: #c5a332 !important;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   padding-left: 0.5rem;
 }
 #main #left-sidebar .list-group-item-action {
-  color: white !important;
-  background-color: transparent !important;
+  color: #cbe1ea;
+  display: flex;
+  margin-right: 12px;
+  padding: 5px 0px 6px 12px;
+  white-space: nowrap;
+  font-weight: 400;
+  line-height: 1.5rem;
+  min-height: 2.25rem;
   text-decoration: none;
-  padding-left: 1rem;
 }
 #main #left-sidebar .list-group-item-action.active {
+  position: relative;
   background-color: #e96802 !important;
+}
+#main #left-sidebar .list-group-item-action.active::before, #main #left-sidebar .list-group-item-action.active::after {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+#main #left-sidebar .list-group-item-action.active::before {
+  content: url("/img/sidebar-nav-item-icon.svg");
+  left: 0;
+}
+#main #left-sidebar .list-group-item-action.active::after {
+  content: url("/img/orange-ribbon.svg");
+  right: -1.25rem;
 }
 #main #left-sidebar .list-group-item-action:last-child {
   border-radius: 0;
 }
+#main #left-sidebar .list-group-item-action:hover:not(.active) {
+  background: rgba(0, 0, 0, 0.169);
+}
 #main #left-sidebar .list-group-item-action .as-in-word {
+  color: #fff;
   font-weight: bold;
   font-style: italic;
+  padding-left: 0.25rem;
 }

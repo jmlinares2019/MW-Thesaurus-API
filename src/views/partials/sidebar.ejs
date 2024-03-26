@@ -3,7 +3,7 @@
     <% sidebarList.map((grammarClass) =>{ %>
       <p class="grammar-class"><%= grammarClass[0] %></p>
       <% grammarClass[1].map((asInWord) =>{ %>
-        <a class="list-group-item-action" href="#<%= asInWord %>">As in <span class="as-in-word"><%= asInWord %></span></a>
+        <a class="list-group-item-action" href="#<%= asInWord %>">as in <span class="as-in-word"><%= asInWord %></span></a>
       <% }); %>
     <% }); %>
   </div>

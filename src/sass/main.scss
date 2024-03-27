@@ -5,37 +5,20 @@
 
 // Then add additional custom code here
 
+// Imports
 @import 'abstracts/functions';
 @import 'abstracts/variables';
 @import 'abstracts/fonts';
 @import 'abstracts/typography';
 
-// Functional styles
-div, header, footer{
-    // border: 1px solid blue;
-}
+@import 'partials/header.scss';
+@import 'partials/sidebar.scss';
+@import 'partials/footer.scss';
 
-.row{
-    // border: 1px solid red;
-}
-
-[class^="col"]{
-    // border: 1px solid green;
-}
-
-// End Functional styles
 body{
     font-family: $sans-serif;
     font-size: $html-font-size;
 
-}
-
-#top-header{
-    position: fixed;
-    z-index: 1000;
-    width: 100%;
-    background-color: $darkBlue;
-    height: 50px;
 }
 
 #main{
@@ -240,79 +223,6 @@ body{
         }
         
     }
-
-    #left-sidebar{
-        order: 1;
-        position: sticky;
-        top: 50px;
-        height: 100%;
-    
-        color: white;
-        font-size: 1.25rem;
-    
-        .as-in-list-wrapper{
-            border-left:1px solid #c5a332;
-        }
-    
-        .grammar-class{
-            font-family: $serif;
-            font-weight: bold;
-            color: #c5a332 !important;
-    
-            margin-bottom: .5rem;
-            padding-left: .5rem;
-        }
-    
-        .list-group-item-action{
-            color: #cbe1ea;
-            display: flex;
-            margin-right: 12px;
-            padding: 5px 0px 6px 12px;
-            white-space: nowrap;
-            font-weight: 400;
-            line-height: remify(24px);
-            min-height: remify(36px);
-            text-decoration: none;
-    
-            &.active{
-                position: relative;
-                background-color: #e96802 !important;
-
-                &::before,
-                &::after{
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                }
-
-                &::before{
-                    content: url('/img/sidebar-nav-item-icon.svg');
-                    left: 0;
-                }
-
-                &::after{
-                    content: url('/img/orange-ribbon.svg');
-                    right: remify(-20px);
-                }
-            }
-    
-            &:last-child{
-                border-radius: 0;
-            }
-
-            &:hover:not(.active){
-                background: rgba(0,0,0,.169);
-            }
-    
-            .as-in-word{
-                color: $white;
-                font-weight: bold;
-                font-style: italic;
-                padding-left: .25rem;
-            }
-        }   
-    }
-    
     
 }
 

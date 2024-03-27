@@ -1,0 +1,13 @@
+// Imports
+@import '../abstracts/functions';
+@import '../abstracts/variables';
+@import '../abstracts/fonts';
+@import '../abstracts/typography';
+
+#top-header{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    background-color: $darkBlue;
+    height: 50px;
+}

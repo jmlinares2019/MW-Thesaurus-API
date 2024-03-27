@@ -147,7 +147,10 @@
 
             <%# Sidebar %>
             <div id="left-sidebar" class="d-none d-xl-block col-2"><%# d-none d-lg-block col-2 %>
-                <%- include('partials/sidebar.ejs', { sidebarList: sidebarList }) %>
+                <%- include('partials/sidebar.ejs', { 
+                    entry: entry,
+                    sidebarList: sidebarList,
+                }) %>
             </div><%#-- Sidebar -- %>
              
         </div><%#-- main-wrapper --%>

@@ -1,0 +1,10 @@
+// Imports
+@import '../abstracts/functions';
+@import '../abstracts/variables';
+@import '../abstracts/fonts';
+@import '../abstracts/typography';
+
+footer{
+    height: 250px;
+    background-color: $darkGrey;
+}

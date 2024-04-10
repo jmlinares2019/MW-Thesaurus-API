@@ -1,11 +1,12 @@
-<%# Sidebar %>
-<div id="left-sidebar" class="col-4">
-  <ul id="list-example" class="list-group">
+<div class="as-in-list-wrapper">
+  <h2 class="sidebar-title">Thesaurus</h2>
+  <h3 class="sidebar-intro">Synonyms of <span class="entry-word"><%= entry %></span></h3>
+  <div id="as-in-list" class="list-group">
     <% sidebarList.map((grammarClass) =>{ %>
-      <p><%= grammarClass[0] %></p>
+      <p class="grammar-class"><%= grammarClass[0] %></p>
       <% grammarClass[1].map((asInWord) =>{ %>
-        <a class="list-group-item list-group-item-action" href="#<%= asInWord %>">As in <%= asInWord %></a>
+        <a class="list-group-item-action" href="#<%= asInWord %>">as in <span class="as-in-word"><%= asInWord %></span></a>
       <% }); %>
     <% }); %>
-  </ul>
+  </div>
 </div>

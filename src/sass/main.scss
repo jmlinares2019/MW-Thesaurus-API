@@ -1,0 +1,227 @@
+// Include any default variable overrides here (though functions won't be available)
+
+// Path to file bootstrap.scss, which imports all the moduls
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Then add additional custom code here
+
+// Imports
+@import 'abstracts/functions';
+@import 'abstracts/variables';
+@import 'abstracts/fonts';
+@import 'abstracts/typography';
+
+@import 'partials/header.scss';
+@import 'partials/sidebar.scss';
+@import 'partials/footer.scss';
+
+body{
+    font-family: $sans-serif;
+    font-size: $html-font-size;
+}
+
+#main{
+    padding-top: 110px;
+    background-color: $darkBlue;
+
+    #entry{
+        order: 2;
+        padding-left: remify(36px);
+        background-color: white;
+
+        h1.entry-heading{
+            display: none;
+        }
+
+        .grammar-class-wrapper{
+            padding-top: 1.5rem;
+            align-items: baseline;
+
+            .grammar-class-heading h2{
+                @include grammarClassEntry;
+                font-size: remify(50px);
+            }
+
+            .grammar-class-numeration{
+                // font-size: 1rem;
+                padding: 0.5rem;
+                background-color: $lightgrey;
+            }     
+
+            .grammar-class{
+                @include featured;
+            }
+    
+        }
+
+        .sense-item{
+            padding-top: 1rem;
+            border-left-width: 5px;
+            border-left-style: solid;
+            // border-image-source: linear-gradient(to bottom, $grey, $lightgrey);
+            border-image-source: linear-gradient(to bottom, #bbd5e0, #deeaef 17.8%, #deeaef 81.87%, #bbd5e0);
+            border-image-slice: 1;
+
+            div{
+                // border: 1px solid blue;
+                
+            }
+    
+            .sense-basics{
+                padding-left: 1rem;
+
+                .sense-intro-wrapper{
+
+                    h3{
+                        @include entrySubheading;
+                        position: relative;
+
+                        .sense-order{
+                            position: absolute;
+                            top: 0;
+                            left: remify(-24px);
+                            width: 24px;
+                            height: 35px;
+                            background-color: white;
+
+                            &::before{
+                                content: "";
+                                position: absolute;
+                                top: -75%;
+                                left: -25%;
+                                width: 20px;
+                                height: 30px;
+                                background-color: $white;
+                                
+                            }
+                        } 
+
+                    }
+
+                    .as-in-word{
+                        font-style: italic;
+                    }
+                }
+
+                .sense-description,
+                .sense-example{
+                    margin-bottom: 0;
+                }
+
+                .sense-example{
+                    padding-left: 1rem;
+                    border-left: 2px solid $grey;
+                    color: $grey;
+                }
+            }
+
+            .synonyms-list,
+            .similars-list,
+            .relateds-list,
+            .antonyms-list,
+            .near-antonyms-list,
+            .opposites-list{
+                margin-left: 0;
+            }
+
+            .related-term-wrapper{
+                padding: .25rem;
+
+                .related-term-item{
+                    @include relatedTerm;
+                    
+                    &:hover{
+                        box-shadow: inset 0 0 0 3px rgba(0,0,0,.1);
+                    }
+                }
+            }
+        
+            .synonyms-etc-wrapper{
+                padding-top: 2rem;
+                padding-left: 1rem;
+
+                .synonyms-similars-heading{
+                    @include entrySubheading;
+                    position: relative;
+
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: remify(-18px); 
+                        width: 24px;
+                        height: 24px;
+                        border: 8px solid $white;
+                        border-radius: 25px;
+                        background-color: $lightgrey;
+                    }
+                }
+
+                .synonyms-item{
+                    background-color: $synonym;
+                    color: $white;
+                }
+
+                .relateds-item{
+                    background-color: $related;
+                    color: $similars-text;
+                }
+            }
+
+            .antonyms-etc-wrapper{
+                padding-top: 2rem;
+                padding-left: 1rem;
+
+                .antonyms-heading{
+                    @include entrySubheading;
+                }
+
+                .antonyms-item{
+                    background-color: $antonym;
+                    color: white;
+                }
+
+                .near-antonyms-item{
+                    background-color: $nearAntonym;
+                    color: $nearAnt-text;
+                }
+
+            }
+            
+        }
+
+        #related-phrases{
+            padding-top: 2rem;
+            .heading-wrapper{
+                background-color: $lightgrey;
+                .related-phrases-heading{
+                    @include featured;
+                    
+                }
+            }
+
+            .related-phrases-list{
+                padding-top: 1rem;
+
+                .phrase-item-wrapper{
+                    margin-bottom: remify(10px);
+    
+                    .phrase-item{
+                        color: $antonym;
+    
+                        &:not(:hover){
+                            text-decoration: none;
+                        }
+                    }                    
+    
+                }
+    
+            }                
+            
+        }
+        
+    }
+    
+}
+
+

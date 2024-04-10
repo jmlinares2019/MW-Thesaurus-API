@@ -11844,56 +11844,320 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-div, header, footer {
-  border: 1px solid blue;
+@font-face {
+  font-family: "OpenSans";
+  src: url("/fonts/OpenSans-Variable.woff2") format("woff2");
 }
-
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("/fonts/OpenSans-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+}
 #top-header {
   position: fixed;
+  z-index: 1000;
   width: 100%;
-  background-color: brown;
-  height: 50px;
+  background-color: #133f59;
+  min-height: 100px;
+  box-shadow: 0 10px #212529;
+}
+#top-header div {
+  border: 1px solid red;
+}
+#top-header .header-wrapper {
+  padding: 1rem 0;
 }
 
-#results-content {
-  padding-top: 50px;
+@font-face {
+  font-family: "OpenSans";
+  src: url("/fonts/OpenSans-Variable.woff2") format("woff2");
 }
-#results-content #left-sidebar {
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+}
+#left-sidebar {
   order: 1;
   position: sticky;
   top: 50px;
+  min-width: 14.0625rem;
   height: 100%;
+  color: white;
+  font-size: 1.125rem;
 }
-#results-content #entry {
+#left-sidebar div {
+  border: 1px solid green;
+}
+#left-sidebar .sidebar-title {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  font-size: 2.4375rem;
+  line-height: 3.25rem;
+  font-weight: 700;
+  color: #212529;
+  font-size: 1.875rem;
+  color: #c5a332;
+}
+#left-sidebar .sidebar-intro {
+  font-size: 1.0625rem;
+  font-weight: 100;
+  margin-bottom: 1.25rem;
+}
+#left-sidebar .sidebar-intro .entry-word {
+  color: #fff;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 0.25rem;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list {
+  border-left: 3px solid #c5a332;
+  border-radius: 0;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .grammar-class {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: #c5a332 !important;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action {
+  color: #cbe1ea;
+  display: flex;
+  margin-right: 12px;
+  padding: 5px 0px 6px 12px;
+  white-space: nowrap;
+  font-weight: 400;
+  line-height: 1.5rem;
+  min-height: 2.25rem;
+  text-decoration: none;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active {
+  position: relative;
+  background-color: #e96802 !important;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active::before, #left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active::after {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active::before {
+  content: url("/img/sidebar-nav-item-icon.svg");
+  left: 0;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active::after {
+  content: url("/img/orange-ribbon.svg");
+  right: -1.25rem;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action:last-child {
+  border-radius: 0;
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action:hover:not(.active) {
+  background: rgba(0, 0, 0, 0.169);
+}
+#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action .as-in-word {
+  color: #fff;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 0.25rem;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("/fonts/OpenSans-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+}
+footer {
+  height: 250px;
+  background-color: #303336;
+}
+
+body {
+  font-family: "OpenSans", sans-serif;
+  font-size: 16px;
+}
+
+#main {
+  padding-top: 110px;
+  background-color: #133f59;
+}
+#main #entry {
   order: 2;
+  padding-left: 2.25rem;
+  background-color: white;
 }
-#results-content #entry .grammar-class-wrapper {
-  border: 1px solid violet;
+#main #entry h1.entry-heading, #main #entry .entry-heading.h1 {
+  display: none;
 }
-#results-content #entry .grammar-class-wrapper .sense-item {
-  border-color: red;
+#main #entry .grammar-class-wrapper {
+  padding-top: 1.5rem;
+  align-items: baseline;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .sense-basics {
-  background-color: aquamarine;
+#main #entry .grammar-class-wrapper .grammar-class-heading h2, #main #entry .grammar-class-wrapper .grammar-class-heading .h2 {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  font-size: 2.4375rem;
+  line-height: 3.25rem;
+  font-weight: 700;
+  color: #212529;
+  font-size: 3.125rem;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item {
-  background-color: bisque;
+#main #entry .grammar-class-wrapper .grammar-class-numeration {
+  padding: 0.5rem;
+  background-color: #f4f4f4;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .synonyms-list {
-  background-color: bisque;
+#main #entry .grammar-class-wrapper .grammar-class {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  line-height: 2.125rem;
+  font-weight: 700;
+  color: #4a7d95;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .similars-list {
-  background-color: rgb(242, 186, 118);
+#main #entry .sense-item {
+  padding-top: 1rem;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-image-source: linear-gradient(to bottom, #bbd5e0, #deeaef 17.8%, #deeaef 81.87%, #bbd5e0);
+  border-image-slice: 1;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .synonyms-et-altri-item .relateds-list {
-  background-color: rgb(250, 164, 58);
+#main #entry .sense-item .sense-basics {
+  padding-left: 1rem;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .antonyms-item {
-  background-color: rgb(153, 241, 244);
+#main #entry .sense-item .sense-basics .sense-intro-wrapper h3, #main #entry .sense-item .sense-basics .sense-intro-wrapper .h3 {
+  font-size: 1.0625rem;
+  line-height: 1.6875rem;
+  font-weight: 700;
+  color: #0f3850;
+  position: relative;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .near-antonyms-item {
-  background-color: rgb(77, 249, 255);
+#main #entry .sense-item .sense-basics .sense-intro-wrapper h3 .sense-order, #main #entry .sense-item .sense-basics .sense-intro-wrapper .h3 .sense-order {
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  width: 24px;
+  height: 35px;
+  background-color: white;
 }
-#results-content #entry .grammar-class-wrapper .sense-item .antonyms-et-altri-item .opposites-item {
-  background-color: rgb(16, 247, 255);
+#main #entry .sense-item .sense-basics .sense-intro-wrapper h3 .sense-order::before, #main #entry .sense-item .sense-basics .sense-intro-wrapper .h3 .sense-order::before {
+  content: "";
+  position: absolute;
+  top: -75%;
+  left: -25%;
+  width: 20px;
+  height: 30px;
+  background-color: #fff;
+}
+#main #entry .sense-item .sense-basics .sense-intro-wrapper .as-in-word {
+  font-style: italic;
+}
+#main #entry .sense-item .sense-basics .sense-description,
+#main #entry .sense-item .sense-basics .sense-example {
+  margin-bottom: 0;
+}
+#main #entry .sense-item .sense-basics .sense-example {
+  padding-left: 1rem;
+  border-left: 2px solid #8a8d91;
+  color: #8a8d91;
+}
+#main #entry .sense-item .synonyms-list,
+#main #entry .sense-item .similars-list,
+#main #entry .sense-item .relateds-list,
+#main #entry .sense-item .antonyms-list,
+#main #entry .sense-item .near-antonyms-list,
+#main #entry .sense-item .opposites-list {
+  margin-left: 0;
+}
+#main #entry .sense-item .related-term-wrapper {
+  padding: 0.25rem;
+}
+#main #entry .sense-item .related-term-wrapper .related-term-item {
+  font-size: 1.125rem;
+  line-height: 27px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1px 0.5rem;
+  border-radius: 5px;
+}
+#main #entry .sense-item .related-term-wrapper .related-term-item:hover {
+  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+#main #entry .sense-item .synonyms-etc-wrapper {
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+#main #entry .sense-item .synonyms-etc-wrapper .synonyms-similars-heading {
+  font-size: 1.0625rem;
+  line-height: 1.6875rem;
+  font-weight: 700;
+  color: #0f3850;
+  position: relative;
+}
+#main #entry .sense-item .synonyms-etc-wrapper .synonyms-similars-heading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1.125rem;
+  width: 24px;
+  height: 24px;
+  border: 8px solid #fff;
+  border-radius: 25px;
+  background-color: #f4f4f4;
+}
+#main #entry .sense-item .synonyms-etc-wrapper .synonyms-item {
+  background-color: #f75b00;
+  color: #fff;
+}
+#main #entry .sense-item .synonyms-etc-wrapper .relateds-item {
+  background-color: #fef0e6;
+  color: #a33c00;
+}
+#main #entry .sense-item .antonyms-etc-wrapper {
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+#main #entry .sense-item .antonyms-etc-wrapper .antonyms-heading {
+  font-size: 1.0625rem;
+  line-height: 1.6875rem;
+  font-weight: 700;
+  color: #0f3850;
+}
+#main #entry .sense-item .antonyms-etc-wrapper .antonyms-item {
+  background-color: #0061f2;
+  color: white;
+}
+#main #entry .sense-item .antonyms-etc-wrapper .near-antonyms-item {
+  background-color: #cce3fe;
+  color: #004eaf;
+}
+#main #entry #related-phrases {
+  padding-top: 2rem;
+}
+#main #entry #related-phrases .heading-wrapper {
+  background-color: #f4f4f4;
+}
+#main #entry #related-phrases .heading-wrapper .related-phrases-heading {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  line-height: 2.125rem;
+  font-weight: 700;
+  color: #4a7d95;
+}
+#main #entry #related-phrases .related-phrases-list {
+  padding-top: 1rem;
+}
+#main #entry #related-phrases .related-phrases-list .phrase-item-wrapper {
+  margin-bottom: 0.625rem;
+}
+#main #entry #related-phrases .related-phrases-list .phrase-item-wrapper .phrase-item {
+  color: #0061f2;
+}
+#main #entry #related-phrases .related-phrases-list .phrase-item-wrapper .phrase-item:not(:hover) {
+  text-decoration: none;
 }

@@ -1,0 +1,38 @@
+$html-font-size: 16px;
+
+// Grammar Class entry
+@mixin grammarClassEntry{
+    font-family: $serif;
+    font-size: remify(39px);
+    line-height: remify(52px);
+    font-weight: 700;
+    color: $black;
+}
+
+// Grammar class & phrases heading
+@mixin featured{
+    font-family: $serif;
+    font-size: remify(24px);
+    line-height: remify(34px);
+    font-weight: 700;
+    color: #4a7d95;
+}
+
+// Senses Subtitle
+@mixin entrySubheading{
+    // font-family: $sans-serif;
+    font-size: remify(17px);
+    line-height: remify(27px);
+    font-weight: 700;
+    color: $darkerBlue;
+}
+
+// Synonyms, similars, related, antonyms, opposites, etc.
+@mixin relatedTerm{
+    font-size: remify(18px);
+    line-height: 27px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1px .5rem;
+    border-radius: 5px
+}

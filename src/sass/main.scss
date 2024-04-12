@@ -21,7 +21,10 @@ body{
 }
 
 #main{
-    padding-top: 110px;
+    padding: {
+        top: 110px;
+        bottom: 50px;
+    }
     background-color: $darkBlue;
 
     #entry{

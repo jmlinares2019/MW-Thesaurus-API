@@ -10,13 +10,14 @@
     top: 50px;
     min-width: remify(225px);
     height: 100%;
+    padding-top: 30px;
 
     color: white;
     font-size: remify(18px);
 
-    div{
+    /* div{
         border: 1px solid green;
-    }
+    } */
 
     .sidebar-title{
         @include grammarClassEntry;

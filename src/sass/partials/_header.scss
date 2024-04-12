@@ -8,16 +8,42 @@
     position: fixed;
     z-index: 1000;
     width: 100%;
-    background-color: $darkBlue;
-    min-height: 100px;
+    background-color: $black;
+    min-height: 50px;
 
-    box-shadow: 0 10px $black;
+    // box-shadow: 0 10px $black;
 
-    div{
+    /* div{
         border: 1px solid red;
+    } */
+
+    a.navbar-brand{
+        @include grammarClassEntry;
+        font-size: remify(18px);
+        color: $white;
     }
 
-    .header-wrapper{
-        padding: 1rem 0;
+    form.search-form{
+        background-color: $white;
+        border: none;
+        border-radius: .5rem;
+
+        input.search-input{
+            border: none;
+
+            &:focus{
+                box-shadow: none;
+            }
+        }
+
+        button.search-button{
+            background-color: $synonym;
+            border: none;
+            margin: .15rem;
+
+            img.search-icon{
+                filter: invert(1);
+            }
+        }
     }
 }

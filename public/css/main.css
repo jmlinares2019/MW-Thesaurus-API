@@ -11864,15 +11864,39 @@ textarea.form-control-lg {
   position: fixed;
   z-index: 1000;
   width: 100%;
-  background-color: #133f59;
-  min-height: 100px;
-  box-shadow: 0 10px #212529;
+  background-color: #212529;
+  min-height: 50px;
+  /* div{
+      border: 1px solid red;
+  } */
 }
-#top-header div {
-  border: 1px solid red;
+#top-header a.navbar-brand {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  font-size: 2.4375rem;
+  line-height: 3.25rem;
+  font-weight: 700;
+  color: #212529;
+  font-size: 1.125rem;
+  color: #fff;
 }
-#top-header .header-wrapper {
-  padding: 1rem 0;
+#top-header form.search-form {
+  background-color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+}
+#top-header form.search-form input.search-input {
+  border: none;
+}
+#top-header form.search-form input.search-input:focus {
+  box-shadow: none;
+}
+#top-header form.search-form button.search-button {
+  background-color: #f75b00;
+  border: none;
+  margin: 0.15rem;
+}
+#top-header form.search-form button.search-button img.search-icon {
+  filter: invert(1);
 }
 
 @font-face {

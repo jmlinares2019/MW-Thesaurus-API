@@ -11913,11 +11913,12 @@ textarea.form-control-lg {
   top: 50px;
   min-width: 14.0625rem;
   height: 100%;
+  padding-top: 30px;
   color: white;
   font-size: 1.125rem;
-}
-#left-sidebar div {
-  border: 1px solid green;
+  /* div{
+      border: 1px solid green;
+  } */
 }
 #left-sidebar .sidebar-title {
   font-family: "Playfair Display", "Times New Roman", Times, serif;
@@ -11999,9 +12000,16 @@ textarea.form-control-lg {
   font-family: "Playfair Display";
   src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
 }
-footer {
-  height: 250px;
+footer#footer {
+  height: 150px;
+  padding-top: 40px;
+  padding-bottom: 20px;
   background-color: #303336;
+  color: #fff;
+  font-size: 0.875rem;
+}
+footer#footer a {
+  color: #f75b00;
 }
 
 body {
@@ -12011,6 +12019,7 @@ body {
 
 #main {
   padding-top: 110px;
+  padding-bottom: 50px;
   background-color: #133f59;
 }
 #main #entry {

@@ -6,9 +6,10 @@
 // Then add additional custom code here
 
 // Imports
-@import 'abstracts/functions';
 @import 'abstracts/variables';
+@import 'abstracts/functions';
 @import 'abstracts/fonts';
+@import 'abstracts/mixins';
 @import 'abstracts/typography';
 
 @import 'partials/header.scss';
@@ -43,6 +44,9 @@ body{
             .grammar-class-heading h2{
                 @include grammarClassEntry;
                 font-size: remify(50px);
+                @include desktop-down{
+                    font-size: remify(40px);
+                }
             }
 
             .grammar-class-numeration{
@@ -129,6 +133,10 @@ body{
 
             .related-term-wrapper{
                 padding: .25rem;
+
+                @include phone-down{
+                    width: auto;
+                }
 
                 .related-term-item{
                     @include relatedTerm;

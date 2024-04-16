@@ -1,7 +1,9 @@
 <%# initializing sidebar data nested arrays, to be filled and nested on each iteration %>
 <%  const sidebarList = []
     let   grammarClasses = []
-    let   topSynonyms = [] %>
+    let   topSynonyms = [] 
+    const navbarList = [] 
+%>
 
 <div id="main">
     
@@ -132,9 +134,10 @@
                                 
                             <% }); %>
                         
-                        <%# Pushing to sidebar and emptying %>
+                        <%# Pushing to sidebar / navbar and emptying %>
                         <% grammarClasses.push(topSynonyms);
                         sidebarList.push(grammarClasses);
+                        navbarList.push(topSynonyms);
                         topSynonyms = [] 
                         grammarClasses = [] %>
                     
@@ -145,8 +148,17 @@
 
             </div><%#-- Entry -- %>
 
+            <%#-- Navbar top --%>
+            <div id="top-navbar" class="d-xl-none">
+                <%- include('partials/top_navbar.ejs', {
+                    navbarList: navbarList,
+                }) %>
+                <% console.log(navbarList) %>
+            </div><%#-- Navbar top --%>
+            
+
             <%# Sidebar %>
-            <div id="left-sidebar" class="d-none d-xl-block col-2"><%# d-none d-lg-block col-2 %>
+            <div id="left-sidebar" class="d-none d-xl-block col-2">
                 <%- include('partials/sidebar.ejs', { 
                     entry: entry,
                     sidebarList: sidebarList,

@@ -1,0 +1,11 @@
+<nav id="as-in-list" class="navbar">
+    <ul class="nav nav-pills">
+      <% navbarList.map((synonymsGroup) =>{
+        synonymsGroup.map((asInWord) =>{ %>
+          <li class="nav-item">
+            <a class="nav-link" href="#<%= asInWord %>">as in <span class="as-in-word"><%= asInWord %></span></a>
+          </li>
+        <%});
+      }); %>
+    </ul>
+</nav>

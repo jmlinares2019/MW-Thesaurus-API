@@ -176,6 +176,11 @@ body{
                     color: $white;
                 }
 
+                .similars-item{
+                    background-color: $similar;
+                    color: $similars-text;
+                }
+
                 .relateds-item{
                     background-color: $related;
                     color: $similars-text;
@@ -193,6 +198,11 @@ body{
                 .antonyms-item{
                     background-color: $antonym;
                     color: white;
+                }
+
+                .opposites-item{
+                    background-color: $nearAntonym;
+                    color: $nearAnt-text;
                 }
 
                 .near-antonyms-item{

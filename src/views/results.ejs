@@ -147,23 +147,14 @@
                 <%- include('partials/phrases.ejs', { entry: entry }) %>
 
             </div><%#-- Entry -- %>
-
-            <%#-- Navbar top --%>
-            <div id="top-navbar" class="d-xl-none">
-                <%- include('partials/top_navbar.ejs', {
-                    navbarList: navbarList,
-                }) %>
-                <% console.log(navbarList) %>
-            </div><%#-- Navbar top --%>
             
-
-            <%# Sidebar %>
-            <div id="left-sidebar" class="d-none d-xl-block col-2">
+            <%#-- Sidebar / navbar -- %>
+            <div id="as-in-nav" class="d-none d-sm-block col-xl-2">
                 <%- include('partials/sidebar.ejs', { 
                     entry: entry,
                     sidebarList: sidebarList,
                 }) %>
-            </div><%#-- Sidebar -- %>
+            </div><%#-- Sidebar / navbar -- %>
              
         </div><%#-- main-wrapper --%>
         

@@ -13,8 +13,7 @@
 @import 'abstracts/typography';
 
 @import 'partials/header.scss';
-@import 'partials/sidebar.scss';
-@import 'partials/top_navbar';
+@import 'partials/as-in-nav.scss';
 @import 'partials/footer.scss';
 
 body{
@@ -23,16 +22,24 @@ body{
 }
 
 #main{
-    padding: {
-        top: 110px;
-        bottom: 50px;
-    }
     background-color: $darkBlue;
+
+    @include large-desktop-up{
+        padding-top: 110px;
+    }
 
     #entry{
         order: 2;
         padding-left: remify(36px);
         background-color: white;
+
+        @include large-desktop-down{
+            padding-top: 50px;
+        }
+
+        @include phone-down{
+            padding-top: 100px;
+        }
 
         h1.entry-heading{
             display: none;
@@ -69,11 +76,6 @@ body{
             border-left-style: solid;
             border-image-source: linear-gradient(to bottom, #bbd5e0, #deeaef 17.8%, #deeaef 81.87%, #bbd5e0);
             border-image-slice: 1;
-
-            div{
-                // border: 1px solid blue;
-                
-            }
     
             .sense-basics{
                 padding-left: 1rem;

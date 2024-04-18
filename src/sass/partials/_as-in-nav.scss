@@ -1,0 +1,146 @@
+// Imports
+@import '../abstracts/functions';
+@import '../abstracts/variables';
+@import '../abstracts/fonts';
+@import '../abstracts/typography';
+
+#as-in-nav{
+    order: 1;
+    position: sticky;
+    top: 50px;
+    min-width: remify(225px);
+    height: 100%;
+    padding-top: 30px;
+
+    color: white;
+    font-size: remify(18px);
+
+    @include large-desktop-down{
+        background-color: $white;
+        box-shadow: 0px 2px 20px 0px rgba(0,0,0,.1);
+    }
+
+    .sidebar-title{
+        @include grammarClassEntry;
+        font-size: remify(30px);
+        color: $gold;
+    }
+
+    .sidebar-intro{
+        font-size: remify(17px);
+        font-weight: 100;
+        margin-bottom: remify(20px);
+
+        .entry-word{
+            color: $white;
+            font-weight: bold;
+            font-style: italic;
+            padding-left: .25rem;
+        }
+
+    }
+
+    .as-in-list-wrapper{
+
+        @include large-desktop-down{
+            .sidebar-title,
+            .sidebar-intro,
+            .grammar-class{
+                display: none;
+            }
+
+            #as-in-list{
+                flex-direction: row;
+
+                .list-group-item-action{
+                    width: auto;
+                }
+            }
+        }
+
+        #as-in-list{
+            border-radius: 0;
+
+            @include large-desktop-up{
+                border-left: 3px solid $gold;
+            }
+
+            .grammar-class{
+                font-family: $serif;
+                font-weight: bold;
+                color: $gold !important;
+        
+                margin-bottom: .5rem;
+                padding-left: .5rem;
+            }
+        
+            .list-group-item-action{
+                color: $darkBlue;
+                display: flex;
+                margin-right: 12px;
+                padding: 5px 10px;
+                white-space: nowrap;
+                font-weight: 400;
+                line-height: remify(24px);
+                min-height: remify(36px);
+                text-decoration: none;
+
+                @include large-desktop-up{
+                    color: #cbe1ea;
+
+                    &.active{
+                        position: relative;
+                        background-color: #e96802 !important;
+            
+                        &::before,
+                        &::after{
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                        }
+            
+                        &::before{
+                            content: url('/img/sidebar-nav-item-icon.svg');
+                            left: 0;
+                        }
+            
+                        &::after{
+                            content: url('/img/orange-ribbon.svg');
+                            right: remify(-20px);
+                        }
+                    }
+            
+                    &:last-child{
+                        border-radius: 0;
+                    }
+            
+                    &:hover:not(.active){
+                        background: rgba(0,0,0,.169);
+                    }
+                }
+
+                @include large-desktop-down{
+                    font-size: remify(16px);
+                    padding-bottom: 10px;
+
+                    &.active{
+                        border-bottom: 5px solid $synonym;
+                    }
+                    
+                }
+        
+                .as-in-word{
+                    font-weight: bold;
+                    font-style: italic;
+                    padding-left: .25rem;
+
+                    @include large-desktop-up{
+                        color: $white;
+                    }
+                }
+            }  
+        }
+    }
+
+     
+}

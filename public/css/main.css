@@ -11844,6 +11844,9 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+/* @media screen and (max-width: 768px){
+    $html-font-size: 14px;
+} */
 @font-face {
   font-family: "OpenSans";
   src: url("/fonts/OpenSans-Variable.woff2") format("woff2");
@@ -11852,6 +11855,9 @@ textarea.form-control-lg {
   font-family: "Playfair Display";
   src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
 }
+/* @media screen and (max-width: 768px){
+    $html-font-size: 14px;
+} */
 @font-face {
   font-family: "OpenSans";
   src: url("/fonts/OpenSans-Variable.woff2") format("woff2");
@@ -11865,10 +11871,7 @@ textarea.form-control-lg {
   z-index: 1000;
   width: 100%;
   background-color: #212529;
-  min-height: 50px;
-  /* div{
-      border: 1px solid red;
-  } */
+  min-height: 70px;
 }
 #top-header a.navbar-brand {
   font-family: "Playfair Display", "Times New Roman", Times, serif;
@@ -11899,6 +11902,9 @@ textarea.form-control-lg {
   filter: invert(1);
 }
 
+/* @media screen and (max-width: 768px){
+    $html-font-size: 14px;
+} */
 @font-face {
   font-family: "OpenSans";
   src: url("/fonts/OpenSans-Variable.woff2") format("woff2");
@@ -11907,7 +11913,7 @@ textarea.form-control-lg {
   font-family: "Playfair Display";
   src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
 }
-#left-sidebar {
+#as-in-nav {
   order: 1;
   position: sticky;
   top: 50px;
@@ -11916,11 +11922,14 @@ textarea.form-control-lg {
   padding-top: 30px;
   color: white;
   font-size: 1.125rem;
-  /* div{
-      border: 1px solid green;
-  } */
 }
-#left-sidebar .sidebar-title {
+@media screen and (max-width: 1200px) {
+  #as-in-nav {
+    background-color: #fff;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.1);
+  }
+}
+#as-in-nav .sidebar-title {
   font-family: "Playfair Display", "Times New Roman", Times, serif;
   font-size: 2.4375rem;
   line-height: 3.25rem;
@@ -11929,69 +11938,107 @@ textarea.form-control-lg {
   font-size: 1.875rem;
   color: #c5a332;
 }
-#left-sidebar .sidebar-intro {
+#as-in-nav .sidebar-intro {
   font-size: 1.0625rem;
   font-weight: 100;
   margin-bottom: 1.25rem;
 }
-#left-sidebar .sidebar-intro .entry-word {
+#as-in-nav .sidebar-intro .entry-word {
   color: #fff;
   font-weight: bold;
   font-style: italic;
   padding-left: 0.25rem;
 }
-#left-sidebar .as-in-list-wrapper #as-in-list {
-  border-left: 3px solid #c5a332;
+@media screen and (max-width: 1200px) {
+  #as-in-nav .as-in-list-wrapper .sidebar-title,
+  #as-in-nav .as-in-list-wrapper .sidebar-intro,
+  #as-in-nav .as-in-list-wrapper .grammar-class {
+    display: none;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list {
+    flex-direction: row;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action {
+    width: auto;
+  }
+}
+#as-in-nav .as-in-list-wrapper #as-in-list {
   border-radius: 0;
 }
-#left-sidebar .as-in-list-wrapper #as-in-list .grammar-class {
+@media screen and (min-width: 1200px) {
+  #as-in-nav .as-in-list-wrapper #as-in-list {
+    border-left: 3px solid #c5a332;
+  }
+}
+#as-in-nav .as-in-list-wrapper #as-in-list .grammar-class {
   font-family: "Playfair Display", "Times New Roman", Times, serif;
   font-weight: bold;
   color: #c5a332 !important;
   margin-bottom: 0.5rem;
   padding-left: 0.5rem;
 }
-#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action {
-  color: #cbe1ea;
+#as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action {
+  color: #133f59;
   display: flex;
   margin-right: 12px;
-  padding: 5px 0px 6px 12px;
+  padding: 5px 10px;
   white-space: nowrap;
   font-weight: 400;
   line-height: 1.5rem;
   min-height: 2.25rem;
   text-decoration: none;
 }
-#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active {
-  position: relative;
-  background-color: #e96802 !important;
+@media screen and (min-width: 1200px) {
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action {
+    color: #cbe1ea;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action.active {
+    position: relative;
+    background-color: #e96802 !important;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action.active::before, #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action.active::after {
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action.active::before {
+    content: url("/img/sidebar-nav-item-icon.svg");
+    left: 0;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action.active::after {
+    content: url("/img/orange-ribbon.svg");
+    right: -1.25rem;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action:last-child {
+    border-radius: 0;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action:hover:not(.active) {
+    background: rgba(0, 0, 0, 0.169);
+  }
 }
-#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active::before, #left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active::after {
-  display: block;
-  position: absolute;
-  top: 0;
+@media screen and (max-width: 1200px) {
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action {
+    font-size: 1rem;
+    padding-bottom: 10px;
+  }
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action.active {
+    border-bottom: 5px solid #f75b00;
+  }
 }
-#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active::before {
-  content: url("/img/sidebar-nav-item-icon.svg");
-  left: 0;
-}
-#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action.active::after {
-  content: url("/img/orange-ribbon.svg");
-  right: -1.25rem;
-}
-#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action:last-child {
-  border-radius: 0;
-}
-#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action:hover:not(.active) {
-  background: rgba(0, 0, 0, 0.169);
-}
-#left-sidebar .as-in-list-wrapper #as-in-list .list-group-item-action .as-in-word {
-  color: #fff;
+#as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action .as-in-word {
   font-weight: bold;
   font-style: italic;
   padding-left: 0.25rem;
 }
+@media screen and (min-width: 1200px) {
+  #as-in-nav .as-in-list-wrapper #as-in-list .list-group-item-action .as-in-word {
+    color: #fff;
+  }
+}
 
+/* @media screen and (max-width: 768px){
+    $html-font-size: 14px;
+} */
 @font-face {
   font-family: "OpenSans";
   src: url("/fonts/OpenSans-Variable.woff2") format("woff2");
@@ -12018,14 +12065,27 @@ body {
 }
 
 #main {
-  padding-top: 110px;
-  padding-bottom: 50px;
   background-color: #133f59;
+}
+@media screen and (min-width: 1200px) {
+  #main {
+    padding-top: 110px;
+  }
 }
 #main #entry {
   order: 2;
   padding-left: 2.25rem;
   background-color: white;
+}
+@media screen and (max-width: 1200px) {
+  #main #entry {
+    padding-top: 50px;
+  }
+}
+@media screen and (max-width: 576px) {
+  #main #entry {
+    padding-top: 100px;
+  }
 }
 #main #entry h1.entry-heading, #main #entry .entry-heading.h1 {
   display: none;
@@ -12042,6 +12102,11 @@ body {
   color: #212529;
   font-size: 3.125rem;
 }
+@media screen and (max-width: 992px) {
+  #main #entry .grammar-class-wrapper .grammar-class-heading h2, #main #entry .grammar-class-wrapper .grammar-class-heading .h2 {
+    font-size: 2.5rem;
+  }
+}
 #main #entry .grammar-class-wrapper .grammar-class-numeration {
   padding: 0.5rem;
   background-color: #f4f4f4;
@@ -12055,6 +12120,7 @@ body {
 }
 #main #entry .sense-item {
   padding-top: 1rem;
+  margin-bottom: 20px;
   border-left-width: 5px;
   border-left-style: solid;
   border-image-source: linear-gradient(to bottom, #bbd5e0, #deeaef 17.8%, #deeaef 81.87%, #bbd5e0);
@@ -12110,6 +12176,11 @@ body {
 #main #entry .sense-item .related-term-wrapper {
   padding: 0.25rem;
 }
+@media screen and (max-width: 576px) {
+  #main #entry .sense-item .related-term-wrapper {
+    width: auto;
+  }
+}
 #main #entry .sense-item .related-term-wrapper .related-term-item {
   font-size: 1.125rem;
   line-height: 27px;
@@ -12117,6 +12188,11 @@ body {
   text-decoration: none;
   padding: 1px 0.5rem;
   border-radius: 5px;
+}
+@media screen and (max-width: 768px) {
+  #main #entry .sense-item .related-term-wrapper .related-term-item {
+    font-size: 1rem;
+  }
 }
 #main #entry .sense-item .related-term-wrapper .related-term-item:hover {
   box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);

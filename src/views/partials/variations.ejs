@@ -2,7 +2,7 @@
     <div class="<%= variationsName %>-list row">
         <% variations.map((variation) => { 
             variation.map((item) => { %>
-                <div class="related-term-wrapper col-4">
+                <div class="related-term-wrapper col-6 col-md-4">
                     <a href="/<%= item.wd %>" class="<%= variationsName %>-item related-term-item"><%= item.wd %></a> 
                 </div> 
             <% }); %>

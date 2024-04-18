@@ -3,5 +3,5 @@
 }
 
 @function remify($pxValue) {
-    @return #{stripUnit($pxValue) / stripUnit(16px)}rem;
+    @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
 }

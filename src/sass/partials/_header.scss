@@ -9,13 +9,7 @@
     z-index: 1000;
     width: 100%;
     background-color: $black;
-    min-height: 50px;
-
-    // box-shadow: 0 10px $black;
-
-    /* div{
-        border: 1px solid red;
-    } */
+    min-height: 70px;
 
     a.navbar-brand{
         @include grammarClassEntry;

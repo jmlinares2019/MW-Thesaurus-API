@@ -49,7 +49,7 @@
                 display: none;
             }
 
-            #as-in-list{
+            .list-group{
                 flex-direction: row;
 
                 .list-group-item-action{
@@ -58,7 +58,7 @@
             }
         }
 
-        #as-in-list{
+        .list-group{
             border-radius: 0;
 
             @include large-desktop-up{

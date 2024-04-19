@@ -1,0 +1,18 @@
+.related-term-wrapper{
+    display: flex;
+
+    .tooltip-wrapper{
+        padding-left: .25rem;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        .tooltip.custom-tooltip {
+            // --bs-tooltip-bg: white;
+            // --bs-tooltip-color: $black;
+            // --bs-tooltip-border-bottom: 3px solid $synonyms;
+            background-color: aqua !important;
+        }
+    }
+}

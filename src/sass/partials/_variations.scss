@@ -6,13 +6,27 @@
 
         &:hover{
             cursor: pointer;
-        }
+        }        
 
-        .tooltip.custom-tooltip {
-            // --bs-tooltip-bg: white;
-            // --bs-tooltip-color: $black;
-            // --bs-tooltip-border-bottom: 3px solid $synonyms;
-            background-color: aqua !important;
+    }
+}
+
+.bs-tooltip-auto[data-popper-placement^=top].custom-tooltip{
+    // overriding Bootstrap tooltip default styles
+    --bs-tooltip-bg: white;
+    --bs-tooltip-opacity: 1;
+    --bs-tooltip-color: $black;
+    --bs-tooltip-border-radius: 0;
+    font-size: 1rem;
+    font-style: italic;
+    border-bottom: 3px solid $synonym;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.1);;
+
+    .tooltip-arrow{
+        &::before{
+            top: 0;
+            border-top-color: $synonym;
         }
     }
+    
 }

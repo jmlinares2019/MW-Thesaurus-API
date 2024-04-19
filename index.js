@@ -7,7 +7,7 @@ import bodyParser from 'body-parser';
 const app = express();
 const port = 3000;
 const API_URL = 'https://www.dictionaryapi.com/api/v3/references/thesaurus/json';
-const API_KEY = '4c0ee450-6bb8-4361-8622-585b4b1e598d';
+const API_KEY = '4c0ee450-6bb8-4361-8622-585b4b1e598d'; 
 
 // create filepath
 const __dirname = dirname(fileURLToPath(import.meta.url));

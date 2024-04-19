@@ -7,6 +7,10 @@
 #suggestions-content{
     padding-top: remify(100px);
 
+    @include phone-down{
+        padding-top: remify(125px);
+    }
+
     @include desktop-up{
         max-width: 720px;
     }
@@ -36,6 +40,10 @@
             a{
                 color: $antonym;
                 text-decoration: none;
+
+                &:hover{
+                    text-decoration: underline;
+                }
             }
             
         }

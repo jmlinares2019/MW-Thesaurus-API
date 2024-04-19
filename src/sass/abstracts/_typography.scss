@@ -35,6 +35,7 @@ $html-font-size: 16px;
     text-decoration: none;
     padding: 1px .5rem;
     border-radius: 5px;
+    border: 1px dashed $black;
 
     @include tablet-down{
         font-size: 1rem;

@@ -2,7 +2,7 @@
 
 <%- include('partials/head.ejs')%>
 
-<div class="global-wrapper">
+<div class="global-wrapper <%= pageClass %>">
     <%- include('partials/header.ejs') %>
 
     <%# Template routing %>
@@ -11,10 +11,10 @@
     <% } else if (page === "suggestions") { %>
         <%- include("pages/suggestions.ejs") %>
     <% } else if (page === "suggestions") { %>
-        <%- include('home.ejs') %>
+        <%- include('pages/home.ejs') %>
     <% } else { %>
         <%# on page load, by default %>
-        <%- include('home.ejs') %>
+        <%- include('pages/home.ejs') %>
     <% } %>
     
     <%- include('partials/footer.ejs') %>

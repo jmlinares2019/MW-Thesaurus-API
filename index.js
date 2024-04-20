@@ -20,7 +20,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Search page (home)
 app.get("/", async (req, res) => {
-    res.render(`${__dirname}/src/views/index.ejs`, { page: "home" });
+    res.render(`${__dirname}/src/views/index.ejs`, { 
+        page: "home",
+        pageClass: "home-page" });
 });
 
 // Search results
@@ -35,12 +37,14 @@ app.post("/search", async (req, res) => {
         if(results[0].meta){
             res.render(`${__dirname}/src/views/index.ejs`, { 
                 page: "results", 
+                pageClass: "results-page",
                 entry: search,
                 results: results 
             });
         } else {
             res.render(`${__dirname}/src/views/index.ejs`, { 
                 page: "suggestions",
+                pageClass: "suggestions-page",
                 search: search,
                 suggestions: results 
             });
@@ -62,12 +66,14 @@ app.get("/:word", async (req, res) => {
             if(results[0].meta){
                 res.render(`${__dirname}/src/views/index.ejs`, {
                     page: "results", 
+                    pageClass: "results-page",
                     entry: search,
                     results: results 
                 });
             } else {
                 res.render(`${__dirname}/src/views/index.ejs`, {
                     page: "suggestions", 
+                    pageClass: "suggestions-page",
                     search: search,
                     suggestions: results 
                 });

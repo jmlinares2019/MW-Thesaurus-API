@@ -2,7 +2,11 @@
     background-color: $darkBlue;
 
     @include large-desktop-up{
-        padding-top: 110px;
+        min-height: calc(100vh - 150px);
+        padding: {
+            top: 110px;
+            bottom: 40px;
+        }
     }
 
     #entry{

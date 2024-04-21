@@ -1,12 +1,14 @@
+.global-wrapper.home-page{
+    @include tablet-up{
+        height: 100vh;
+    }
+}
+
 #home-content{
-    // height: 100vh;
+    height: 100%;
 
     @include desktop-down{
         padding-top: 100px;
-    }
-
-    div, h1, p{
-        border: 1px solid brown;
     }
 
     .home-wrapper{

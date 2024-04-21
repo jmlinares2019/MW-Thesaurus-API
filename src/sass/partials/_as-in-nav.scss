@@ -1,9 +1,3 @@
-// Imports
-@import '../abstracts/functions';
-@import '../abstracts/variables';
-@import '../abstracts/fonts';
-@import '../abstracts/typography';
-
 #as-in-nav{
     order: 1;
     position: sticky;
@@ -18,6 +12,7 @@
     @include large-desktop-down{
         background-color: $white;
         box-shadow: 0px 2px 20px 0px rgba(0,0,0,.1);
+        overflow-x: auto;
     }
 
     .sidebar-title{
@@ -49,7 +44,7 @@
                 display: none;
             }
 
-            #as-in-list{
+            .list-group{
                 flex-direction: row;
 
                 .list-group-item-action{
@@ -58,7 +53,7 @@
             }
         }
 
-        #as-in-list{
+        .list-group{
             border-radius: 0;
 
             @include large-desktop-up{
@@ -120,8 +115,8 @@
                 }
 
                 @include large-desktop-down{
+                    height: remify(45px);
                     font-size: remify(16px);
-                    padding-bottom: 10px;
 
                     &.active{
                         border-bottom: 5px solid $synonym;

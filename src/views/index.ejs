@@ -2,18 +2,20 @@
 
 <%- include('partials/head.ejs')%>
 
-<%- include('partials/header.ejs') %>
+<div class="global-wrapper <%= pageClass %>">
+    <%- include('partials/header.ejs') %>
 
-<%# Template routing %>
-<% if(page === "results") { %>
-    <%- include("results.ejs") %>
-<% } else if (page === "suggestions") { %>
-    <%- include("suggestions.ejs") %>
-<% } else if (page === "suggestions") { %>
-    <%- include('home.ejs') %>
-<% } else { %>
-    <%# on page load, by default %>
-    <%- include('home.ejs') %>
-<% } %>
-
-<%- include('partials/footer.ejs') %>
+    <%# Template routing %>
+    <% if(page === "results") { %>
+        <%- include("pages/results.ejs") %>
+    <% } else if (page === "suggestions") { %>
+        <%- include("pages/suggestions.ejs") %>
+    <% } else if (page === "suggestions") { %>
+        <%- include('pages/home.ejs') %>
+    <% } else { %>
+        <%# on page load, by default %>
+        <%- include('pages/home.ejs') %>
+    <% } %>
+    
+    <%- include('partials/footer.ejs') %>
+</div>

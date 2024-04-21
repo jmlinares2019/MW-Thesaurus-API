@@ -1,0 +1,121 @@
+.synonyms-list,
+.similars-list,
+.relateds-list,
+.antonyms-list,
+.near-antonyms-list,
+.opposites-list{
+    margin-left: 0;
+}
+
+.related-term-wrapper{
+    padding: .25rem;
+    display: flex;
+
+    @include phone-down{
+        width: auto;
+    }
+
+    .related-term-item{
+        @include relatedTerm;
+        
+        &:hover{
+            box-shadow: inset 0 0 0 3px rgba(0,0,0,.1);
+        }
+    }
+
+    .tooltip-wrapper{
+        padding-left: .25rem;
+
+        &:hover{
+            cursor: pointer;
+        }
+        
+        img.info{
+            filter: contrast(.5);
+        }
+
+    }
+    
+}
+
+.synonyms-etc-wrapper{
+    padding-top: 2rem;
+    padding-left: 1rem;
+
+    .synonyms-similars-heading{
+        @include entrySubheading;
+        position: relative;
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: remify(-18px); 
+            width: 24px;
+            height: 24px;
+            border: 8px solid $white;
+            border-radius: 25px;
+            background-color: $lightgrey;
+        }
+    }
+
+    .synonyms-item{
+        background-color: $synonym;
+        color: $white;
+    }
+
+    .similars-item{
+        background-color: $similar;
+        color: $similars-text;
+    }
+
+    .relateds-item{
+        background-color: $related;
+        color: $similars-text;
+    }
+}
+
+.antonyms-etc-wrapper{
+    padding-top: 2rem;
+    padding-left: 1rem;
+
+    .antonyms-heading{
+        @include entrySubheading;
+    }
+
+    .antonyms-item{
+        background-color: $antonym;
+        color: white;
+    }
+
+    .opposites-item{
+        background-color: $nearAntonym;
+        color: $nearAnt-text;
+    }
+
+    .near-antonyms-item{
+        background-color: $nearAntonym;
+        color: $nearAnt-text;
+    }
+
+}
+
+// overriding Bootstrap tooltip default styles
+.bs-tooltip-auto[data-popper-placement^=top].custom-tooltip{
+    --bs-tooltip-bg: white;
+    --bs-tooltip-opacity: 1;
+    --bs-tooltip-color: $black;
+    --bs-tooltip-border-radius: 0;
+    font-size: 1rem;
+    font-style: italic;
+    border-bottom: 3px solid $synonym;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.1);;
+
+    .tooltip-arrow{
+        &::before{
+            top: 0;
+            border-top-color: $synonym;
+        }
+    }
+    
+}

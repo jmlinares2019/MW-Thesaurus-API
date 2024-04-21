@@ -5,14 +5,14 @@
     const navbarList = [] 
 %>
 
-<div id="main">
+<div id="results">
     
     <div class="container-xxl">
         <div class="row main-wrapper">
 
             <%# Entry %>
-            <div id="entry" data-bs-spy="scroll" data-bs-target="#as-in-list" data-bs-smooth-scroll="true" class="col-xl-7 scrollspy-example" tabindex="0">
-
+            <div id="entry" class="col-xl-7">
+                
                 <h1 class="entry-heading"><%= entry %></h1>
 
                 <%# filtering results which are only for the word, not a phrase containing it %>
@@ -67,16 +67,18 @@
                                     </div>
                                     
                                     <%# Meaning %>
-                                    <% const meaning = sense[0][1].dt[0][1]; %>
+                                    <% const meaning = sense[0][1].dt[0][1]; 
+                                    const formattedMeaning = meaning.replace(/{it}/ig, "<i>").replace(/{\/it}/ig, "</i>") %>
                                     <div class="col-12 sense-description-wrapper">
-                                        <p class="sense-description"><%= meaning %></p>
+                                        <p class="sense-description"><%- formattedMeaning %></p>
                                     </div>
                                     
                                     <%# Example sentence %>
                                     <% if(sense[0][1].dt[1]){ 
-                                        const example = sense[0][1].dt[1][1][0].t; %>
+                                        const example = sense[0][1].dt[1][1][0].t; 
+                                        const formattedExample = example.replace(/{it}/ig, "<i>").replace(/{\/it}/ig, "</i>") %>
                                         <div class="col-12 sense-example-wrapper">
-                                            <p class="sense-example"><%= example %></p>
+                                            <p class="sense-example"><%- formattedExample %></p>
                                         </div>
                                     <% } %>
                                 </div>
@@ -86,19 +88,19 @@
                                     <div class="row synonyms-etc-wrapper">
                                         <h4 class="synonyms-similars-heading">Synonyms & similar words</h4>
                                         <% if(sense[0][1].syn_list){ %>
-                                            <%- include('partials/variations.ejs', { 
+                                            <%- include('../partials/variations.ejs', { 
                                                 variationsName: "synonyms",
                                                 variations: sense[0][1].syn_list 
                                             }) %>     
                                         <% } %>
                                         <% if(sense[0][1].sim_list){ %>
-                                            <%- include('partials/variations.ejs', { 
+                                            <%- include('../partials/variations.ejs', { 
                                                 variationsName: "similars",
                                                 variations: sense[0][1].sim_list 
                                             }) %>
                                         <% } %>
                                         <% if(sense[0][1].rel_list){ %>
-                                            <%- include('partials/variations.ejs', { 
+                                            <%- include('../partials/variations.ejs', { 
                                                 variationsName: "relateds",
                                                 variations: sense[0][1].rel_list 
                                             }) %>
@@ -111,19 +113,19 @@
                                     <div class="row antonyms-etc-wrapper">
                                         <h4 class="antonyms-heading">Antonyms & near antonyms</h4>
                                         <% if(sense[0][1].ant_list){ %>
-                                            <%- include('partials/variations.ejs', { 
+                                            <%- include('../partials/variations.ejs', { 
                                                 variationsName: "antonyms",
                                                 variations: sense[0][1].ant_list 
                                             }) %>
                                         <% } %>
                                         <% if(sense[0][1].near_list){ %>
-                                            <%- include('partials/variations.ejs', { 
+                                            <%- include('../partials/variations.ejs', { 
                                                 variationsName: "near-antonyms",
                                                 variations: sense[0][1].near_list 
                                             }) %>
                                         <% } %>
                                         <% if(sense[0][1].opp_list){ %>
-                                            <%- include('partials/variations.ejs', { 
+                                            <%- include('../partials/variations.ejs', { 
                                                 variationsName: "opposites",
                                                 variations: sense[0][1].opp_list 
                                             }) %>
@@ -144,13 +146,13 @@
                 <% }); %>
 
                 <%# Phrases containing the entry, if they exist (check inside partial) %>
-                <%- include('partials/phrases.ejs', { entry: entry }) %>
+                <%- include('../partials/phrases.ejs', { entry: entry }) %>
 
             </div><%#-- Entry -- %>
             
             <%#-- Sidebar / navbar -- %>
             <div id="as-in-nav" class="d-none d-sm-block col-xl-2">
-                <%- include('partials/sidebar.ejs', { 
+                <%- include('../partials/sidebar.ejs', { 
                     entry: entry,
                     sidebarList: sidebarList,
                 }) %>

@@ -12,6 +12,11 @@
 </footer>
     
 <script src="/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Initializing Bootstraps tooltips (must be done in the HTML)
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
 </body>
 
 </html>

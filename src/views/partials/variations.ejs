@@ -3,7 +3,18 @@
         <% variations.map((variation) => { 
             variation.map((item) => { %>
                 <div class="related-term-wrapper col-6 col-md-4">
-                    <a href="/<%= item.wd %>" class="<%= variationsName %>-item related-term-item"><%= item.wd %></a> 
+                    <a href="/<%= item.wd %>" class="<%= variationsName %>-item related-term-item"><%= item.wd %></a>
+                    <% if(item.wsls) { %>
+                        <% let infotip = item.wsls[0] %>
+                        <div 
+                            class="tooltip-wrapper" 
+                            data-bs-toggle="tooltip" 
+                            data-bs-html="true"
+                            data-bs-custom-class="custom-tooltip" 
+                            data-bs-title="<%= infotip %>">
+                                <img src="img/info-circle.svg" alt="info" class="info">
+                        </div>
+                    <% } %>
                 </div> 
             <% }); %>
         <% }); %>

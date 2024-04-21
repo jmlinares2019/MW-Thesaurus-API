@@ -1,0 +1,45 @@
+#suggestions-content{
+    padding-top: remify(100px);
+
+    @include phone-down{
+        padding-top: remify(125px);
+    }
+
+    @include desktop-up{
+        max-width: 720px;
+    }
+
+    .search-heading{
+        @include grammarClassEntry;
+        font-size: remify(50px);
+        font-style: italic;
+        margin-bottom: 1rem; 
+        @include desktop-down{
+            font-size: remify(40px);
+        }
+    }
+
+    .suggestions-text{
+        font-size: 1rem;
+        color: $black;
+    }
+
+    .suggestions-list-wrapper{
+        list-style-type: none;
+        padding-top: remify(20px);
+        padding-left: 0;
+
+        .suggestion-item{
+
+            a{
+                color: $antonym;
+                text-decoration: none;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            
+        }
+    }
+}

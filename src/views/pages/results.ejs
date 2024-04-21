@@ -67,16 +67,18 @@
                                     </div>
                                     
                                     <%# Meaning %>
-                                    <% const meaning = sense[0][1].dt[0][1]; %>
+                                    <% const meaning = sense[0][1].dt[0][1]; 
+                                    const formattedMeaning = meaning.replace(/{it}/ig, "<i>").replace(/{\/it}/ig, "</i>") %>
                                     <div class="col-12 sense-description-wrapper">
-                                        <p class="sense-description"><%= meaning %></p>
+                                        <p class="sense-description"><%- formattedMeaning %></p>
                                     </div>
                                     
                                     <%# Example sentence %>
                                     <% if(sense[0][1].dt[1]){ 
-                                        const example = sense[0][1].dt[1][1][0].t; %>
+                                        const example = sense[0][1].dt[1][1][0].t; 
+                                        const formattedExample = example.replace(/{it}/ig, "<i>").replace(/{\/it}/ig, "</i>") %>
                                         <div class="col-12 sense-example-wrapper">
-                                            <p class="sense-example"><%= example %></p>
+                                            <p class="sense-example"><%- formattedExample %></p>
                                         </div>
                                     <% } %>
                                 </div>
